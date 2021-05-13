@@ -21,6 +21,9 @@ class AdminServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        $this->publishes([
+            __DIR__.'/public' => public_path('vendor/simao-coutinho'),
+        ], 'public');
         include __DIR__.'/routes/web.php';
     }
 }
