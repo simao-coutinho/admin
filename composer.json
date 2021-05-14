@@ -14,5 +14,11 @@
         "psr-4": {
             "SimaoCoutinho\\Admin\\": "/src"
         }
+    },"extra": {
+    "laravel": {
+        "providers": [
+            "SimaoCoutinho\\Admin\\AdminServiceProvider"
+        ]
     }
+}
 }
