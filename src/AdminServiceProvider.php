@@ -3,7 +3,6 @@
 namespace SimaoCoutinho\Admin;
 
 use Illuminate\Support\ServiceProvider;
-use SimaoCoutinho\Admin\App\View\Components\Input;
 
 class AdminServiceProvider extends ServiceProvider
 {
