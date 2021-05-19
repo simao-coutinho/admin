@@ -3,6 +3,7 @@
 namespace SimaoCoutinho\Admin;
 
 use Illuminate\Support\ServiceProvider;
+use SimaoCoutinho\Admin\App\View\Components\Input;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -24,10 +25,9 @@ class AdminServiceProvider extends ServiceProvider
         //        __DIR__.'/../resources/views' => resource_path('views/vendor/courier'),
         //    ]);
 
-        //$this->loadViewComponentsAs('courier', [
-        //        Alert::class,
-        //        Button::class,
-        //    ]);
+        $this->loadViewComponentsAs('admin', [
+                Input::class
+            ]);
 
         // Se tiver migrações
         // return $this->loadMigrationsFrom(__DIR__.'/database/migrations');
@@ -37,7 +37,7 @@ class AdminServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/public/' => public_path('vendor/simao-coutinho'),
-        ], 'public');
+        ], 'admin-public');
 
         if ($this->app->runningInConsole()) {
 //$this->commands([
@@ -46,8 +46,8 @@ class AdminServiceProvider extends ServiceProvider
 //        ]);
         }
 
-        //$this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        include __DIR__ . '/routes/web.php';
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        //include __DIR__ . '/routes/web.php';
 
         //$this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'courier');
         //$this->publishes([
