@@ -1,10 +1,10 @@
 <?php
 
-namespace SimaoCoutinho\Admin;
+namespace SimaoCoutinho\Admin\Components;
 
 use Illuminate\View\Component;
 
-class Input extends Component
+class SummernoteStyles extends Component
 {
     /**
      * Get the view / contents that represent the component.
@@ -13,6 +13,6 @@ class Input extends Component
      */
     public function render()
     {
-        return view('admin::components.input');
+        return view('admin::components.summernote-styles');
     }
 }
