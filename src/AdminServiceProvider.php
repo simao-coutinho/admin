@@ -10,6 +10,8 @@ use SimaoCoutinho\Admin\Components\Select2;
 use SimaoCoutinho\Admin\Components\SummernoteContent;
 use SimaoCoutinho\Admin\Components\SummernoteScripts;
 use SimaoCoutinho\Admin\Components\SummernoteStyles;
+use SimaoCoutinho\Admin\Components\TableScripts;
+use SimaoCoutinho\Admin\Components\TableStyles;
 use SimaoCoutinho\Admin\Components\Textarea;
 
 class AdminServiceProvider extends ServiceProvider
@@ -41,7 +43,9 @@ class AdminServiceProvider extends ServiceProvider
             Textarea::class,
             SummernoteStyles::class,
             SummernoteContent::class,
-            SummernoteScripts::class
+            SummernoteScripts::class,
+            TableScripts::class,
+            TableStyles::class
         ]);
 
         // Se tiver migrações
@@ -51,12 +55,12 @@ class AdminServiceProvider extends ServiceProvider
 //        ], 'migrations');
 
         $this->publishes([
-            __DIR__ . '/public/' => public_path('vendor/simao-coutinho'),
-        ], 'admin-plugins');
+            __DIR__ . '/plugins/' => public_path('vendor/simao-coutinho'),
+        ], 'admin/plugins');
 
         $this->publishes([
-            __DIR__ . '/public/public/' => public_path(''),
-        ], 'admin-public');
+            __DIR__ . '/public/' => public_path(''),
+        ], 'admin/public');
 
         if ($this->app->runningInConsole()) {
             // Para criar comandos de instalaçao (a ver)
