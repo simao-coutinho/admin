@@ -18,6 +18,10 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('vendor/simao-coutinho/dist/css/adminlte.min.css') }}">
 
+    <!-- Project Styles -->
+    <link rel="stylesheet" href="{{ asset('css/utils.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/backend.css') }}">
+
     @yield('myStyles')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -250,6 +254,9 @@
 <script src="{{ asset('vendor/simao-coutinho/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('vendor/simao-coutinho/dist/js/demo.js') }}"></script>
+
+<!-- Project Styles -->
+<link rel="stylesheet" href="{{ asset('js/utils.js') }}">
 
 @yield('myScripts')
 </body>
