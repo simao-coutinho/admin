@@ -13,6 +13,6 @@ class TableStyles extends Component
      */
     public function render()
     {
-        return view('components.table-styles');
+        return view('admin::components.table-styles');
     }
 }

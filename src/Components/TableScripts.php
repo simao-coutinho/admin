@@ -13,6 +13,6 @@ class TableScripts extends Component
      */
     public function render()
     {
-        return view('components.table-scripts');
+        return view('admin::components.table-scripts');
     }
 }
