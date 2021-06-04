@@ -1,0 +1,784 @@
+/****************************************************** Text **********************************************************/
+.text-bold {
+    font-weight: bold;
+}
+
+/**************************************************** Buttons *********************************************************/
+.btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0);
+}
+
+.outlineButton {
+    border-color: #D90845;
+    color: #D90845;
+}
+
+.outlineButton:hover {
+    background-color: #D90845;
+    border-color: whitesmoke;
+}
+
+.outlineButton:focus {
+    background: #D90845;
+    box-shadow: 0 0 0 0.2rem whitesmoke;
+    color: white;
+}
+
+.fillButton {
+    background-color: #D90845;
+    border-color: #D90845;
+}
+
+.fillButton:disabled {
+    background-color: #d36383;
+    border-color: #d36383;
+}
+
+.fillButton:disabled:hover{
+    cursor: not-allowed;
+    background-color: #d36383;
+    border-color: #d36383;
+    color: white;
+}
+
+.fillButton:hover {
+    background-color: white;
+    color: #D90845;
+    border-color: #D90845;
+}
+
+.fillButton:hover > i {
+    color: #202429;
+}
+
+.fillButton:focus {
+    background: #D90845;
+    box-shadow: 0 0 0 0.2rem grey;
+    color: white;
+}
+
+.outlineRedButton:hover {
+    background-color: #FF0000;
+    border-color: whitesmoke;
+}
+
+.outlineRedButton:focus {
+    background: #FF0000;
+    box-shadow: 0 0 0 0.2rem whitesmoke;
+    color: white;
+}
+
+.rs-upcoming-event .nav-link.active {
+    padding: 8px;
+    background-color: #d90845;
+    border-radius: 5px;
+    color: white;
+}
+/************************************************ Styles Comuns *******************************************************/
+a:hover {
+  text-decoration: none;
+}
+
+.c-inactive {
+    color: #e9e9e9;
+}
+
+.c-green {
+    color: #28a745;
+}
+
+.c-red {
+    color: #dc3545;
+}
+
+.c-accent {
+    color: #D90845;
+}
+
+.c-white {
+    color: white;
+}
+
+.form-group > label {
+    color: #202429;
+    font-weight: 700;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+/************************************************* Backgrounds ********************************************************/
+.bg-accent {
+  background: #D90845;
+  color: white;
+}
+
+.bg-darkGreen {
+    background: darkgreen;
+    color: white;
+}
+
+.bg-green {
+    background-color: #28a745 !important;
+}
+
+.bg-green,
+.bg-green > a {
+    color: #ffffff !important;
+}
+
+.bg-green.btn:hover {
+    border-color: #1e7e34;
+    color: #ececec;
+}
+
+
+.time-label {
+    border-radius: 4px;
+    background-color: #ffffff;
+    display: inline-block;
+    font-weight: 600;
+    padding: 5px;
+}
+
+/*************************************************** Displays *********************************************************/
+.d-block {
+  display: block;
+}
+
+.cookie-consent {
+    text-align: center;
+    padding: 2rem;
+    background-color: #D90845;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    font-weight: bold;
+}
+
+.cookie-consent > .cookie-consent__message {
+    color: white;
+}
+
+.cookie-consent > .cookie-consent__agree {
+    margin-left: 1rem;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+
+.cookie-consent > .cookie-consent__agree:active {
+    position:relative;
+    top:1px;
+}
+
+/**************************************** CheckBox & Radio Buttons Style **********************************************/
+.b-contain *, .b-contain *::before, .b-contain *::after {
+	box-sizing: content-box !important;
+}
+
+.b-contain input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.b-contain span {
+	line-height: 1.39;
+	font-size: 0.87rem;
+	font-family: inherit;
+  position: relative;
+  bottom: 4px;
+}
+
+.b-contain {
+	display: table;
+	position: relative;
+	padding-left: 1.8rem;
+	cursor: pointer;
+	margin-bottom: .5rem;
+}
+
+.b-contain input[type="checkbox"] ~ .b-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 1rem;
+	width: 1rem;
+	background: rgba(241, 245, 248, 1);
+	transition: background 250ms;
+	border: 1px solid rgba(184, 194, 204, 1);
+	border-radius: 0.125rem;
+}
+
+.b-contain input[type="radio"] ~ .b-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 1rem;
+	width: 1rem;
+	background: rgba(241, 245, 248, 1);
+	transition: background 250ms;
+	border: 1px solid rgba(184, 194, 204, 1);
+	border-radius: 2.0rem;
+}
+
+.b-contain input[type="checkbox"] ~ .b-input::after {
+	content: '';
+	position: absolute;
+	display: none;
+	left: 0.34rem;
+	top: 0.09rem;
+	width: .25rem;
+	height: .6rem;
+	border: solid rgba(255, 255, 255, 1);
+	border-width: 0 2px 2px 0;
+	transition: background 250ms;
+	transform: rotate(45deg);
+}
+
+.b-contain input[type="radio"] ~ .b-input::after {
+	content: '';
+	position: absolute;
+	display: none;
+	left: 0.23rem;
+	top: 0.21rem;
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 2.0rem;
+	background: rgba(255, 255, 255, 1);
+	transition: background 250ms;
+}
+
+.b-contain input:disabled ~ .b-input::after {
+	border-color: rgba(135, 149, 161, 1);
+}
+
+.b-contain input:checked ~ .b-input::after {
+	display: block;
+}
+
+.b-contain:hover input ~ .b-input,
+.b-contain input:focus ~ .b-input {
+	background: rgb(231, 238, 243);
+}
+
+.b-contain input:focus ~ .b-input {
+	box-shadow: 0 0 0 2px rgba(52,144,220,0.5);
+}
+
+.b-contain input:checked ~ .b-input {
+	background: #D90845;
+	border-color: #D90845;
+}
+
+.b-contain input[type="checkbox"]:disabled ~ .b-input {
+	background: rgba(241, 245, 248, 1);
+	border-color: rgba(184, 194, 204, 1);
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.b-contain input[type="radio"]:disabled ~ .b-input {
+	background: rgba(241, 245, 248, 1);
+	border-color: rgba(184, 194, 204, 1);
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.b-contain input[type="radio"]:disabled ~ .b-input::after {
+	background: rgba(135, 149, 161, 1);
+}
+
+.b-contain input:checked:focus ~ .b-input, .b-contain:hover input:not([disabled]):checked ~ .b-input {
+	background: #D90845;
+	border-color: #D90845;
+}
+
+.b-contain .b-input::before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 3rem;
+	height: 3rem;
+	margin-left: -0.85rem;
+	margin-top: -0.85rem;
+	background: #D90845;
+	border-radius: 2rem;
+	opacity: .6;
+	z-index: 99999;
+	transform: scale(0);
+}
+
+@keyframes b-ripple {
+	0% {
+		transform: scale(0);
+	}
+
+	20% {
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(1);
+  	}
+}
+
+@keyframes b-ripple-duplicate {
+	0% {
+		transform: scale(0);
+	}
+
+	30% {
+		transform: scale(1);
+	}
+
+	60% {
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(1);
+  	}
+}
+
+.b-contain input + .b-input::before {
+	animation: b-ripple 250ms ease-out;
+}
+
+.b-contain input:checked + .b-input::before {
+	animation-name: b-ripple-duplicate;
+}
+
+.b-contain .b-input::before {
+	visibility: hidden;
+}
+
+.b-contain input:focus + .b-input::before {
+	visibility: visible;
+}
+
+.b-contain:first-child .b-input::before {
+	visibility: hidden;
+}
+
+/******************************************** myCard STYLE ANIMATION **************************************************/
+.myCard {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.myCard:hover, .myCard:focus {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-img-wrap {
+    overflow: hidden;
+    position: relative;
+}
+.card-img-wrap:after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(66,66,66,0.3);
+    opacity: 0;
+    transition: opacity .25s;
+}
+.card-img-wrap img {
+    transition: transform .25s;
+    width: 100%;
+    height: 200px;
+}
+.card-img-wrap:hover img {
+    transform: scale(1.2);
+}
+.card-img-wrap:hover:after {
+    opacity: 1;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.mt4 {
+  margin-top: 20px;
+}
+
+/************************************************ FONT SIZE UTILS *****************************************************/
+.fs-10 {
+    font-size: 0.625rem;
+}
+
+.fs-11 {
+    font-size: 0.6875rem;
+}
+
+.fs-12 {
+    font-size: 0.75rem;
+}
+
+.fs-13 {
+    font-size: 0.8125rem;
+}
+
+.fs-14 {
+    font-size: 0.875rem;
+}
+
+.fs-15 {
+    font-size: 0.9375rem;
+}
+
+.fs-16 {
+    font-size: 1rem;
+}
+
+.fs-17 {
+    font-size: 1.0625rem;
+}
+
+.fs-18 {
+    font-size: 1.125rem;
+}
+
+.fs-19 {
+    font-size: 1.1875rem;
+}
+
+.fs-20 {
+    font-size: 1.25rem;
+}
+
+.fs-21 {
+    font-size: 1.3125rem;
+}
+
+.fs-22 {
+    font-size: 1.375rem;
+}
+
+.fs-23 {
+    font-size: 1.4375rem;
+}
+
+.fs-24 {
+    font-size: 1.5rem;
+}
+
+.fs-25 {
+    font-size: 1.5625rem;
+}
+
+.fs-26 {
+    font-size: 1.625rem;
+}
+
+.fs-27 {
+    font-size: 1.6875rem;
+}
+
+.fs-28 {
+    font-size: 1.75rem;
+}
+
+.fs-29 {
+    font-size: 1.8125rem;
+}
+
+.fs-30 {
+    font-size: 1.875rem;
+}
+
+.fs-31 {
+    font-size: 1.9375rem;
+}
+
+.fs-32 {
+    font-size: 2rem;
+}
+
+.fs-33 {
+    font-size: 2.0625rem;
+}
+
+.fs-34 {
+    font-size: 2.125rem;
+}
+
+.fs-35 {
+    font-size: 2.1875rem;
+}
+
+.fs-36 {
+    font-size: 2.25rem;
+}
+
+.fs-37 {
+    font-size: 2.3125rem;
+}
+
+.fs-38 {
+    font-size: 2.375rem;
+}
+
+.fs-39 {
+    font-size: 2.4375rem;
+}
+
+.fs-40 {
+    font-size: 2.5rem;
+}
+
+.fs-41 {
+    font-size: 2.5625rem;
+}
+
+.fs-42 {
+    font-size: 2.625rem;
+}
+
+.fs-43 {
+    font-size: 2.6875rem;
+}
+
+.fs-44 {
+    font-size: 2.75rem;
+}
+
+.fs-45 {
+    font-size: 2.8125rem;
+}
+
+.fs-46 {
+    font-size: 2.875rem;
+}
+
+.fs-47 {
+    font-size: 2.9375rem;
+}
+
+.fs-48 {
+    font-size: 3rem;
+}
+
+.fs-49 {
+    font-size: 3.0625rem;
+}
+
+.fs-50 {
+    font-size: 3.125rem;
+}
+
+.fs-51 {
+    font-size: 3.1875rem;
+}
+
+.fs-52 {
+    font-size: 3.25rem;
+}
+
+.fs-53 {
+    font-size: 3.3125rem;
+}
+
+.fs-54 {
+    font-size: 3.375rem;
+}
+
+.fs-55 {
+    font-size: 3.4375rem;
+}
+
+.fs-56 {
+    font-size: 3.5rem;
+}
+
+.fs-57 {
+    font-size: 3.5625rem;
+}
+
+.fs-58 {
+    font-size: 3.625rem;
+}
+
+.fs-59 {
+    font-size: 3.6875rem;
+}
+
+.fs-60 {
+    font-size: 3.75rem;
+}
+
+.fs-61 {
+    font-size: 3.8125rem;
+}
+
+.fs-62 {
+    font-size: 3.875rem;
+}
+
+.fs-63 {
+    font-size: 3.9375rem;
+}
+
+.fs-64 {
+    font-size: 4rem;
+}
+
+.fs-65 {
+    font-size: 4.0625rem;
+}
+
+.fs-66 {
+    font-size: 4.125rem;
+}
+
+.fs-67 {
+    font-size: 4.1875rem;
+}
+
+.fs-68 {
+    font-size: 4.25rem;
+}
+
+.fs-69 {
+    font-size: 4.3125rem;
+}
+
+.fs-70 {
+    font-size: 4.375rem;
+}
+
+.fs-71 {
+    font-size: 4.4375rem;
+}
+
+.fs-72 {
+    font-size: 4.5rem;
+}
+
+.fs-73 {
+    font-size: 4.5625rem;
+}
+
+.fs-74 {
+    font-size: 4.625rem;
+}
+
+.fs-75 {
+    font-size: 4.6875rem;
+}
+
+.fs-76 {
+    font-size: 4.75rem;
+}
+
+.fs-77 {
+    font-size: 4.8125rem;
+}
+
+.fs-78 {
+    font-size: 4.875rem;
+}
+
+.fs-79 {
+    font-size: 4.9375rem;
+}
+
+.fs-80 {
+    font-size: 5rem;
+}
+
+.fs-81 {
+    font-size: 5.0625rem;
+}
+
+.fs-82 {
+    font-size: 5.125rem;
+}
+
+.fs-83 {
+    font-size: 5.1875rem;
+}
+
+.fs-84 {
+    font-size: 5.25rem;
+}
+
+.fs-85 {
+    font-size: 5.3125rem;
+}
+
+.fs-86 {
+    font-size: 5.375rem;
+}
+
+.fs-87 {
+    font-size: 5.4375rem;
+}
+
+.fs-88 {
+    font-size: 5.5rem;
+}
+
+.fs-89 {
+    font-size: 5.5625rem;
+}
+
+.fs-90 {
+    font-size: 5.625rem;
+}
+
+.fs-91 {
+    font-size: 5.6875rem;
+}
+
+.fs-92 {
+    font-size: 5.75rem;
+}
+
+.fs-93 {
+    font-size: 5.8125rem;
+}
+
+.fs-94 {
+    font-size: 5.875rem;
+}
+
+.fs-95 {
+    font-size: 5.9375rem;
+}
+
+.fs-96 {
+    font-size: 6rem;
+}
+
+.fs-97 {
+    font-size: 6.0625rem;
+}
+
+.fs-98 {
+    font-size: 6.125rem;
+}
+
+.fs-99 {
+    font-size: 6.1875rem;
+}
+
+.fs-100 {
+    font-size: 6.25rem;
+}
