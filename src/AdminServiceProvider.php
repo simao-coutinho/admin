@@ -56,11 +56,11 @@ class AdminServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/plugins/' => public_path('vendor/simao-coutinho'),
-        ], 'admin/plugins');
+        ], 'admin-plugins');
 
         $this->publishes([
             __DIR__ . '/public/' => public_path(''),
-        ], 'admin/public');
+        ], 'admin-public');
 
         if ($this->app->runningInConsole()) {
             // Para criar comandos de instalaçao (a ver)
