@@ -42,10 +42,6 @@ body {
     color: #DAE1E8;
 }
 
-.nav-item:hover {
-    background-color: #4F5A69;
-}
-
 .content-wrapper {
     background-color: #DAE1E8;
 }
@@ -157,12 +153,8 @@ td {
     color: black;
 }
 
-.cursor tr {
+.cursor:hover {
     cursor: pointer;
-}
-
-.cursor tbody tr:hover {
-    background-color: #dadada !important;
 }
 
 .hover {
@@ -174,6 +166,7 @@ td {
     left: 0;
 }
 
-.msg-bedroom {
-    margin-top: 100px;
+.table-hover tbody tr:hover {
+    background-color: #dadada !important;
+    cursor: pointer;
 }
