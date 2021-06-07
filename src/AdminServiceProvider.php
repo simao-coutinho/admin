@@ -48,11 +48,10 @@ class AdminServiceProvider extends ServiceProvider
             TableStyles::class
         ]);
 
-        // Se tiver migrações
-        // return $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-//        $this->publishes([
-//            __DIR__.'/database/migrations' => database_path('migrations'),
-//        ], 'migrations');
+        // Migrations
+        $this->publishes([
+            __DIR__ . '/database/migrations' => database_path('migrations'),
+        ], 'admin-migrations');
 
         $this->publishes([
             __DIR__ . '/plugins/' => public_path('vendor/simao-coutinho'),
