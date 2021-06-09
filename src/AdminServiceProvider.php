@@ -54,10 +54,6 @@ class AdminServiceProvider extends ServiceProvider
         ], 'admin-migrations');
 
         $this->publishes([
-            __DIR__ . '/plugins/' => public_path('vendor/simao-coutinho'),
-        ], 'admin-plugins');
-
-        $this->publishes([
             __DIR__ . '/public/' => public_path(''),
         ], 'admin-public');
 

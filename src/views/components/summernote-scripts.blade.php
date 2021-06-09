@@ -1,5 +1,7 @@
 <!-- Summernote -->
-<script src="{{ asset('vendor/simao-coutinho/plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"
+        integrity="sha512-+cXPhsJzyjNGFm5zE+KPEX4Vr/1AbqCUuzAS8Cy5AfLEWm9+UI9OySleqLiSQOQ5Oa2UrzaeAOijhvV/M4apyQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(function () {
         // Summernote
@@ -8,18 +10,18 @@
             toolbar: [
                 // [groupName, [list of button]]
                 ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['fontname','strikethrough', 'superscript', 'subscript']],
+                ['font', ['fontname', 'strikethrough', 'superscript', 'subscript']],
                 ['fontsize', ['fontsize']],
                 ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph','style']],
+                ['para', ['ul', 'ol', 'paragraph', 'style']],
                 ['height', ['height']],
-                ['insert',['hr']]
+                ['insert', ['hr']]
             ]
         })
     })
 
     @if($disabled ?? false)
-        $('.summernote').summernote('disable');
+    $('.summernote').summernote('disable');
     @endif
 </script>
 
