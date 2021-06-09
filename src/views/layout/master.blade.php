@@ -11,10 +11,14 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('vendor/simao-coutinho/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- overlayScrollbars -->
     <link rel="stylesheet"
-          href="{{ asset('vendor/simao-coutinho/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+          href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.min.css"
+          integrity="sha512-jN4O0AUkRmE6Jwc8la2I5iBmS+tCDcfUd1eq8nrZIBnDKTmCp5YxxNN1/aetnAH32qT+dDbk1aGhhoaw5cJNlw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('vendor/simao-coutinho/dist/css/adminlte.min.css') }}">
 
@@ -99,10 +103,10 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         @if (env('APP_LOGO') !== null)
             <a href="{{ route('home') }}" class="brand-link" target="_blank">
-                <img src="{{ env('app_logo') }}" alt="{{ env('APP_NAME') }} Logo"
+                <img src="{{ env('APP_LOGO') }}" alt="{{ env('APP_NAME') }} Logo"
                      style="width: 200px; margin-top: 8px; margin-left: 8px;">
             </a>
-        @endif
+    @endif
 
 
     <!-- Sidebar -->
@@ -152,12 +156,17 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{ asset('vendor/simao-coutinho/plugins/jquery/jquery.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('vendor/simao-coutinho/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
 <!-- overlayScrollbars -->
-<script
-    src="{{ asset('vendor/simao-coutinho/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js"
+        integrity="sha512-B1xv1CqZlvaOobTbSiJWbRO2iM0iii3wQ/LWnXWJJxKfvIRRJa910sVmyZeOrvI854sLDsFCuFHh4urASj+qgw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('vendor/simao-coutinho/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
