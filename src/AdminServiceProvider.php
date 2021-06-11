@@ -3,6 +3,8 @@
 namespace SimaoCoutinho\Admin;
 
 use Illuminate\Support\ServiceProvider;
+use SimaoCoutinho\Admin\Components\Breadcrumb;
+use SimaoCoutinho\Admin\Components\FormContainer;
 use SimaoCoutinho\Admin\Components\Input;
 use SimaoCoutinho\Admin\Components\LiItem;
 use SimaoCoutinho\Admin\Components\Select;
@@ -45,7 +47,9 @@ class AdminServiceProvider extends ServiceProvider
             SummernoteContent::class,
             SummernoteScripts::class,
             TableScripts::class,
-            TableStyles::class
+            TableStyles::class,
+            FormContainer::class,
+            Breadcrumb::class
         ]);
 
         // Migrations

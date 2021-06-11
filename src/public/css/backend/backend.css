@@ -1,18 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 body {
     font-family: 'Ubuntu', sans-serif;
     font-size: 0.8125rem; /* 13px */
 }
 
-@media screen and (min-width: 993px) {
-    .btn-push {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .btn-push {
-        display: block;
-    }
+.user-name {
+    position: relative;
+    top: 6px;
 }
 
 .backend-button {
