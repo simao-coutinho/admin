@@ -34,7 +34,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/views', 'admin');
         // Se necessitar de publicar views
         $this->publishes([
-                __DIR__.'/public-views' => resource_path('views'),
+                __DIR__.'/public_views' => resource_path('views'),
             ], "admin-views");
 
         $this->loadViewComponentsAs('admin', [
