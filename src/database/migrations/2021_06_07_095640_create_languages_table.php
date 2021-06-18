@@ -20,8 +20,7 @@ class CreateLanguagesTable extends Migration
             $table->timestamps();
         });
 
-        DB::insert("INSERT INTO languages (name, code, locale, image, sort_order) VALUES
-            ('English', 'en', 'en-US,en_US.UTF-8,en_US,en-gb,english', 'img/svg/flags/united-kingdom.svg',0);");
+        DB::insert("INSERT INTO languages (name, code, locale, image, sort_order) VALUES ('English', 'en', 'en-US,en_US.UTF-8,en_US,en-gb,english', 'img/svg/flags/united-kingdom.svg',0);");
     }
 
     public function down()

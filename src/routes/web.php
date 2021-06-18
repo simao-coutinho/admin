@@ -5,7 +5,7 @@ use SimaoCoutinho\Admin\Controllers\AdminController;
 Route::get('artisan-migrate', function () {
     $migrator = app('migrator');
     $db = $migrator->resolveConnection(null);
-    $migrations = $migrator->getMigrationFiles('database/migrations');
+    $migrations = $migrator->getMigrationFiles('../database/migrations');
     $migrator->requireFiles($migrations);
     $queries = [];
     $queriesRaw = '';
