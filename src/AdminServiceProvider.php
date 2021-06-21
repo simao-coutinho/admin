@@ -33,10 +33,6 @@ class AdminServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/views', 'admin');
-        // Se necessitar de publicar views
-//        $this->publishes([
-//                __DIR__.'/public_views' => resource_path('views'),
-//            ], "admin-views");
 
         $this->loadViewComponentsAs('admin', [
             Input::class,
@@ -54,17 +50,21 @@ class AdminServiceProvider extends ServiceProvider
         ]);
 
         // Migrations
-//        $this->publishes([
-//            __DIR__ . '/database/migrations' => database_path('migrations'),
-//        ], 'admin-migrations');
+        $this->publishes([
+            __DIR__ . '/database/migrations' => database_path('migrations'),
+        ], 'admin-migrations');
 
-//        $this->publishes([
-//            __DIR__ . '/public/' => public_path(''),
-//        ], 'admin-public');
+        $this->publishes([
+            __DIR__ . '/public/' => public_path(''),
+        ], 'admin-public');
 
-//        $this->publishes([
-//            __DIR__ . '/plugins/' => public_path('vendor/simao-coutinho'),
-//        ], 'admin-plugins');
+        $this->publishes([
+            __DIR__ . '/plugins/' => public_path('vendor/simao-coutinho'),
+        ], 'admin-plugins');
+
+        $this->publishes([
+            __DIR__ . '/public_views' => resource_path('views'),
+        ], "admin-views");
 
         if ($this->app->runningInConsole()) {
             // Para criar comandos de instalaçao (a ver)
