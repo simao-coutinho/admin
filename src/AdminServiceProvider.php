@@ -15,6 +15,7 @@ use SimaoCoutinho\Admin\Components\SummernoteStyles;
 use SimaoCoutinho\Admin\Components\TableScripts;
 use SimaoCoutinho\Admin\Components\TableStyles;
 use SimaoCoutinho\Admin\Components\Textarea;
+use SimaoCoutinho\Admin\Console\Commands\InstallCommand;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -33,9 +34,9 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/views', 'admin');
         // Se necessitar de publicar views
-        $this->publishes([
-                __DIR__.'/public_views' => resource_path('views'),
-            ], "admin-views");
+//        $this->publishes([
+//                __DIR__.'/public_views' => resource_path('views'),
+//            ], "admin-views");
 
         $this->loadViewComponentsAs('admin', [
             Input::class,
@@ -53,30 +54,29 @@ class AdminServiceProvider extends ServiceProvider
         ]);
 
         // Migrations
-        $this->publishes([
-            __DIR__ . '/database/migrations' => database_path('migrations'),
-        ], 'admin-migrations');
+//        $this->publishes([
+//            __DIR__ . '/database/migrations' => database_path('migrations'),
+//        ], 'admin-migrations');
 
-        $this->publishes([
-            __DIR__ . '/public/' => public_path(''),
-        ], 'admin-public');
+//        $this->publishes([
+//            __DIR__ . '/public/' => public_path(''),
+//        ], 'admin-public');
 
-        $this->publishes([
-            __DIR__ . '/plugins/' => public_path('vendor/simao-coutinho'),
-        ], 'admin-plugins');
+//        $this->publishes([
+//            __DIR__ . '/plugins/' => public_path('vendor/simao-coutinho'),
+//        ], 'admin-plugins');
 
         if ($this->app->runningInConsole()) {
             // Para criar comandos de instalaçao (a ver)
-//$this->commands([
-//            InstallCommand::class,
-//            NetworkCommand::class,
-//        ]);
+            $this->commands([
+                InstallCommand::class,
+            ]);
         }
 
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
 
         // Se Tiver traduções
-        $this->loadTranslationsFrom(__DIR__.'/lang', 'admin');
+        $this->loadTranslationsFrom(__DIR__ . '/lang', 'admin');
         //$this->publishes([
         //        __DIR__.'/../resources/lang' => resource_path('lang/vendor/courier'),
         //    ]);

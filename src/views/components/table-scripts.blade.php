@@ -1,9 +1,14 @@
 <!-- DataTables Scripts -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-<script type="text/javascript"
-        src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.25/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/datatables.min.js"></script>
-
+<script src="{{ asset('vendor/simao-coutinho/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('vendor/simao-coutinho/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('vendor/simao-coutinho/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('vendor/simao-coutinho/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('vendor/simao-coutinho/plugins/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('vendor/simao-coutinho/plugins/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('vendor/simao-coutinho/plugins/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('vendor/simao-coutinho/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('vendor/simao-coutinho/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('vendor/simao-coutinho/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
 <script>
     if ($('#myTable').length) {
