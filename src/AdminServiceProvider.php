@@ -7,6 +7,7 @@ use SimaoCoutinho\Admin\Components\Breadcrumb;
 use SimaoCoutinho\Admin\Components\FormContainer;
 use SimaoCoutinho\Admin\Components\Input;
 use SimaoCoutinho\Admin\Components\LiItem;
+use SimaoCoutinho\Admin\Components\LiTree;
 use SimaoCoutinho\Admin\Components\Select;
 use SimaoCoutinho\Admin\Components\Select2;
 use SimaoCoutinho\Admin\Components\SummernoteContent;
@@ -37,6 +38,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->loadViewComponentsAs('admin', [
             Input::class,
             LiItem::class,
+            LiTree::class,
             Select::class,
             Select2::class,
             Textarea::class,
