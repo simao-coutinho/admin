@@ -6,8 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use SimaoCoutinho\Admin\Components\Breadcrumb;
 use SimaoCoutinho\Admin\Components\FormContainer;
 use SimaoCoutinho\Admin\Components\Input;
-use SimaoCoutinho\Admin\Components\LiItem;
-use SimaoCoutinho\Admin\Components\LiTree;
+use SimaoCoutinho\Admin\Components\NavItem;
+use SimaoCoutinho\Admin\Components\NavTree;
 use SimaoCoutinho\Admin\Components\Select;
 use SimaoCoutinho\Admin\Components\Select2;
 use SimaoCoutinho\Admin\Components\SummernoteContent;
@@ -35,21 +35,21 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/views', 'admin');
 
-        $this->loadViewComponentsAs('admin', [
-            Input::class,
-            LiItem::class,
-            LiTree::class,
-            Select::class,
-            Select2::class,
-            Textarea::class,
-            SummernoteStyles::class,
-            SummernoteContent::class,
-            SummernoteScripts::class,
-            TableScripts::class,
-            TableStyles::class,
-            FormContainer::class,
-            Breadcrumb::class
-        ]);
+//        $this->loadViewComponentsAs('admin', [
+//            Input::class,
+//            NavItem::class,
+//            NavTree::class,
+//            Select::class,
+//            Select2::class,
+//            Textarea::class,
+//            SummernoteStyles::class,
+//            SummernoteContent::class,
+//            SummernoteScripts::class,
+//            TableScripts::class,
+//            TableStyles::class,
+//            FormContainer::class,
+//            Breadcrumb::class
+//        ]);
 
         // Migrations
         $this->publishes([
@@ -59,10 +59,6 @@ class AdminServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/public/' => public_path(''),
         ], 'admin-public');
-
-        $this->publishes([
-            __DIR__ . '/plugins/' => public_path('vendor/simao-coutinho'),
-        ], 'admin-plugins');
 
         $this->publishes([
             __DIR__ . '/public_views' => resource_path('views'),

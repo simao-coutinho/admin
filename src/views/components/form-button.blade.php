@@ -4,7 +4,7 @@
         <button
             class="btn btn-sm {{ $buttonClass ?? 'btn-success' }} backend-button ml-md-2"
             @if(isset($onClick))
-                onclick="{{ $onClick }}"
+            onclick="{{ $onClick }}"
             @endif>
             {{ $slot ?? '' }} {{ $title ?? '' }}
         </button>

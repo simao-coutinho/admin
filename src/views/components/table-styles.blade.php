@@ -1,3 +1,15 @@
 <!-- Data Table CSS -->
-<link rel="stylesheet" href="{{ asset('vendor/simao-coutinho/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('vendor/simao-coutinho/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.bootstrap4.min.css"/>
+
+<style>
+    .dt-buttons {
+        position: absolute;
+    }
+
+    .dropdown-item.active, .dropdown-item:active {
+        color: #fff;
+        text-decoration: none;
+        background-color: #6c757d;
+    }
+</style>
