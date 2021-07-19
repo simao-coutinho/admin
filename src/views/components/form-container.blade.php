@@ -8,7 +8,7 @@
                 </ol>
             </div>
             <div class="col-md-8">
-                <div class="float-md-right">
+                <div class="float-md-right d-flex">
                     {{ $buttons ?? '' }}
 
                     @if (isset($backRoute))

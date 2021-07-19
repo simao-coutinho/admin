@@ -4,7 +4,7 @@ namespace SimaoCoutinho\Admin\Components;
 
 use Illuminate\View\Component;
 
-class Select2 extends Component
+class TableContent extends Component
 {
     /**
      * Get the view / contents that represent the component.
@@ -13,6 +13,6 @@ class Select2 extends Component
      */
     public function render()
     {
-        return view('admin::components.select-2-content');
+        return view('admin::components.table-content');
     }
 }

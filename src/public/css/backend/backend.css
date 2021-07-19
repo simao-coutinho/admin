@@ -15,6 +15,15 @@ body {
     margin-left: auto;
 }
 
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:hover {
+    background-color: rgba(255,255,255,.1);
+    color: #fff;
+}
+
+.btn-outline-secondary {
+    background-color: white;
+}
+
 .backend-button > i {
     font-size: 0.625rem;
     padding-right: .25rem !important;
@@ -34,6 +43,7 @@ body {
 
 .nav-icon {
     color: #DAE1E8;
+    font-size: 13px !important;
 }
 
 .content-wrapper {
@@ -164,3 +174,9 @@ td {
     background-color: #dadada !important;
     cursor: pointer;
 }
+
+/*region Select 2*/
+.select2-container--default .select2-dropdown .select2-search__field:focus, .select2-container--default .select2-search--inline .select2-search__field:focus {
+    border: none;
+}
+/*endregion*/

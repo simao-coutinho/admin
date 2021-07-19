@@ -33,6 +33,23 @@ Route::get('artisan-migrate', function () {
     return response()->json(['migrations' => $queries, 'rawQuery' => $queriesRaw]);
 });
 
+Route::post("confirmSeoUrl", function (\Illuminate\Http\Request $request) {
+    $url_alias = trim($request->input('url_alias'));
+
+    if (empty($url_alias)) {
+        return response()->json(['status' => false, "msg" => "O campo vazio invalida a Url Amigável"]);
+    }
+    if(preg_match('/^[a-z][-a-z0-9]*$/', $url_alias)){
+        if (SeoUrl::whereUrl($url_alias)->exists()) {
+            return response()->json(['status' => false, "msg" => "Esta Url Amigável já existe"]);
+        } else {
+            return response()->json(['status' => true]);
+        }
+    } else {
+        return response()->json(['status' => false, "msg" => "Esta Url Amigável não é válida"]);
+    }
+})->name('confirmSeoUrl');
+
 Route::group(['middleware' => 'web', 'prefix' => 'admin'], function () {
     Route::group(['prefix' => 'languages'], function () {
         Route::get('/', [AdminController::class, "languages"])->name('admin.languages');

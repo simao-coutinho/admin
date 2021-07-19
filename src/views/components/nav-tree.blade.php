@@ -1,4 +1,4 @@
-<li class="nav-item {{ isset($route) ? Str::startsWith(url()->current(),$route) ? 'menu-open' : '' : '' }}">
+<li class="nav-item {{ isset($route) ? Str::startsWith(url()->current(),$route) ? 'menu-open' : '' : '' }} {{ $customClass ?? '' }}">
     <a href="#" class="nav-link">
         {{ $icon ?? '' }}
         <p>

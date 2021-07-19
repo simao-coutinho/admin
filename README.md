@@ -28,7 +28,7 @@ php artisan vendor:publish --tag="admin-views"
 
 Remove from app.css
 <pre>
-754   max-width: 65ch;
+max-width: 65ch;
 
 on
 
@@ -40,8 +40,8 @@ on
 
 Add to .env
 <pre>
-APP_LOGO=https://link.com
-APP_LOGO_SQUARE=https://link.com
+APP_LOGO="${APP_URL}/img/image.png"
+APP_LOGO_SQUARE="${APP_URL}/img/image.png"
 </pre>
 
 
@@ -65,12 +65,4 @@ por:
             'url' => env('APP_URL').'/uploads',
             'visibility' => 'public',
         ],
-</pre>
-
-Add in config/app.php
-<pre>
-'providers' => [
-    ...
-    \SimaoCoutinho\Admin\AdminServiceProvider::class
-]
 </pre>
