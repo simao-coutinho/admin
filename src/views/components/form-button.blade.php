@@ -1,7 +1,7 @@
 @if(isset($route))
     <a href="{{ $route }}">
         @endif
-        <button
+        <button id="{{ $id ?? '' }}" name="{{ $id ?? '' }}"
             class="btn btn-sm {{ $buttonClass ?? 'btn-success' }} backend-button ml-md-2"
             @if(isset($onClick))
             onclick="{{ $onClick }}"
