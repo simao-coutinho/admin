@@ -1,10 +1,15 @@
 <div class="col-md-{{ $col ?? 6 }}">
     <div class="form-group form-group-sm">
         <label for="{{ $id ?? '' }}">{{ $label ?? '' }}
-            <small style="color: red; visibility: hidden;" id="summernote-error-{{ $id ?? '' }}">{{ $label ?? '' }} is missing</small>
+            <small style="color: red; visibility: hidden;" id="summernote-error-{{ $id ?? '' }}">{{ $label ?? '' }} is
+                missing</small>
         </label>
         <textarea class="form-control form-control-sm summernote" rows="{{ $rows ?? 7 }}" name="{{ $id ?? '' }}"
-                  id="{{ $id ?? '' }}" placeholder="{{ $label ?? '' }}">{{ $value ?? '' }}</textarea>
+                  id="{{ $id ?? '' }}" placeholder="{{ $label ?? '' }}"
+                  @if($required ?? false)
+                  required
+                  @endif
+        >{{ $value ?? '' }}</textarea>
         @if (isset($small))
             <small>{{ $small }}</small>
         @endif

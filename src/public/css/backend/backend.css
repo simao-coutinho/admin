@@ -9,15 +9,11 @@ body {
     top: 6px;
 }
 
+/* region Buttons */
 .backend-button {
     font-size: 0.8125rem;
     display: block;
     margin-left: auto;
-}
-
-[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:hover {
-    background-color: rgba(255,255,255,.1);
-    color: #fff;
 }
 
 .btn-outline-secondary {
@@ -27,6 +23,16 @@ body {
 .backend-button > i {
     font-size: 0.625rem;
     padding-right: .25rem !important;
+}
+
+.btn-outline-danger {
+    background-color: white;
+}
+/* endregion */
+
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:hover {
+    background-color: rgba(255,255,255,.1);
+    color: #fff;
 }
 
 .margin-checkbox-top {
@@ -170,13 +176,22 @@ td {
     left: 0;
 }
 
+/* region Table */
 .table-hover tbody tr:hover {
     background-color: #dadada !important;
     cursor: pointer;
 }
+/* endregion */
 
-/*region Select 2*/
+/* region Select 2 */
 .select2-container--default .select2-dropdown .select2-search__field:focus, .select2-container--default .select2-search--inline .select2-search__field:focus {
     border: none;
 }
-/*endregion*/
+/* endregion */
+
+/* region Side Bar */
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: rgba(255,255,255,.1);
+    color: #fff;
+}
+/* endregion */
