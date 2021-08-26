@@ -1,7 +1,5 @@
 <?php
 
-use SimaoCoutinho\Admin\Controllers\AdminController;
-
 Route::get('artisan-migrate', function () {
     $migrator = app('migrator');
     $db = $migrator->resolveConnection(null);
