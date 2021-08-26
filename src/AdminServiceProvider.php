@@ -25,7 +25,7 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make('SimaoCoutinho\Admin\Controllers\AdminController');
+        //
     }
 
     /**
