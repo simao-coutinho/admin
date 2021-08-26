@@ -50,12 +50,4 @@ Route::post("confirmSeoUrl", function (\Illuminate\Http\Request $request) {
     }
 })->name('confirmSeoUrl');
 
-Route::group(['middleware' => 'web', 'prefix' => 'admin'], function () {
-    Route::group(['prefix' => 'languages'], function () {
-        Route::get('/', [AdminController::class, "languages"])->name('admin.languages');
-        Route::get('/add', [AdminController::class, "addLanguage"])->name('admin.addLanguage');
-        Route::get('/edit/{id}', [AdminController::class, "editLanguage"])->name('admin.editLanguage');
-        Route::post('/update', [AdminController::class, "updateLanguage"])->name('admin.updateLanguage');
-        Route::post('/delete', [AdminController::class, "deleteLanguage"])->name('admin.deleteLanguage');
-    });
-});
+
