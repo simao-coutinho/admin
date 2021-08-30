@@ -1,3 +1,16 @@
+/* region Globar Utils */
+* {
+    font-family: Nunito, sans-serif;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+/* endregion */
+
 /****************************************************** Text **********************************************************/
 .text-bold {
     font-weight: bold;
@@ -93,6 +106,10 @@ a:hover {
 
 .c-accent {
     color: #D90845;
+}
+
+.c-yellow {
+    color: #ffc107;
 }
 
 .c-white {

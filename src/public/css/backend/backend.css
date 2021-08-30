@@ -9,6 +9,26 @@ body {
     top: 6px;
 }
 
+a {
+    color: black;
+}
+
+a:hover {
+    color: #dea226;
+}
+
+.card-danger.card-outline-tabs > .card-header a.active {
+    border-top: 3px solid #dc3545 !important;
+}
+
+.alert h6 {
+    margin: 0;
+}
+
+.alert button {
+    padding-top: 8px !important;
+}
+
 /* region Buttons */
 .backend-button {
     font-size: 0.8125rem;
@@ -71,7 +91,7 @@ body {
 }
 
 #map {
-    height: 300px;
+    height: 515px;
     width: 100%;
 }
 
@@ -100,12 +120,7 @@ fieldset {
     border-image: initial;
 }
 
-fieldset > legend {
-    width: auto;
-    font-size: 1.125rem;
-}
-
-/******************************************************* INPUTS *******************************************************/
+/* region Inputs */
 .form-group > label {
     font-weight: 400;
     font-size: 0.8125rem; /* 13px */
@@ -118,6 +133,11 @@ fieldset > legend {
 .b-contain > span {
     font-size: 0.8125rem; /* 13px */
 }
+
+.custom-file-input {
+    height: 21px;
+}
+/* endregion */
 
 /* region UnorderedList */
 .horizontal-style {
@@ -195,3 +215,94 @@ td {
     color: #fff;
 }
 /* endregion */
+
+/* region Tabs */
+.nav-tabs .nav-link {
+    background-color: #f1f1f1;
+    border: solid 1px lightgray;
+    border-top: 3px solid #dee2e6 !important;
+}
+
+.nav-tabs .nav-link.disabled {
+    background-color: #f1f1f1;
+    border: solid 1px lightgray;
+    border-top: 3px solid #dee2e6 !important;
+}
+/* endregion */
+
+.border-geofence {
+    border: solid 1px #00FF00;
+    border-radius: 10px;
+    padding-top: 8px;
+    margin-bottom: 10px;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.breadcrumb-item {
+    text-transform: capitalize;
+}
+
+.sortable-product-menu {
+    margin-top: 10px;
+    min-height: 50px;
+    background-color: #f0f0f0
+}
+
+.display-none {
+    display: none;
+}
+
+.content {
+    padding: 16px 40px !important;
+}
+
+.content-header {
+    padding: 40px 40px 0 40px !important;
+}
+
+/* region Fieldset */
+fieldset {
+    min-width: 0;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 18px;
+    font-size: 19.5px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+fieldset legend {
+    padding-bottom: 5px;
+}
+
+fieldset > legend {
+    font-size: 1.125rem;
+}
+/* endregion */
+
+/* region Image */
+.imageEditable {
+    width: 100px;
+    height: 100px;
+    border: solid 1px gray;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+/*endregion */
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #dea226 !important;
+    color: darkred !important;
+}
