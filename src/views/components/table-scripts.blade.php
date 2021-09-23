@@ -13,12 +13,79 @@
 <script>
     if ($('#myTable').length) {
         var table = $('#myTable').DataTable({
-            dom: 'Bfrtip',
-            buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+            dom: 't<"d-flex justify-content-between"ip>',
+            // buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
             "order": [[0, 'desc']],
-            "lengthChange": false,
-            "autoWidth": false,
+            pageLength: 15,
+            lengthMenu: [ [10, 15, 50, -1], [10, 25, 50, "All"] ],
+            "lengthChange": true,
+            language: {
+                url: 'https://raw.githubusercontent.com/DataTables/Plugins/master/i18n/pt_pt.json'
+            },
+            "autoWidth": false
         });
+    }
+
+    function filterTable() {
+        table.search($('#table-search-input').val()).draw();
+    }
+
+</script>
+
+<script>
+    var params = new URLSearchParams(window.location.search)
+    var page = "{{ $_GET['page'] ?? 1 }}"
+    var timeOut = 0
+
+    function changeTablePage(page) {
+        this.page = page
+        setQueryParam('page', page)
+
+        fetchTableResults()
+    }
+
+    function setQueryParam(key, value) {
+        params = new URLSearchParams(window.location.search)
+        params.set(key, value)
+
+        if (history.pushState) {
+            var newurl = window.location.protocol
+            newurl += "//";
+            newurl += window.location.host + window.location.pathname;
+            newurl += "?";
+            newurl += params.toString()
+            window.history.pushState({path:newurl},'',newurl);
+        }
+    }
+
+    function filterTablemyServerTable() {
+        if (timeOut) {
+            clearTimeout(timeOut)
+        }
+
+        timeOut = setTimeout(function () {
+            setQueryParam('page', 1)
+            setQueryParam('search', $('#table-search-input').val())
+            fetchTableResults()
+        }, 500)
+    }
+
+    function fetchTableResults() {
+        $.ajax({
+            type: "GET",
+            url: "{{ $url ?? '' }}?" + params.toString(),
+            data: {
+                type: '{{ $type ?? '' }}'
+            },
+            beforeSend: function () {
+                $('#myServerTable').addClass('loading')
+            },
+            success: function (response) {
+                $('#myServerTable').removeClass('loading')
+                $('#tbody').html(response.html)
+                $('#pagination').html(response.pagination)
+            }
+        })
     }
 </script>
 

@@ -1,20 +1,23 @@
-<div class="col-md-{{ $col ?? '' }}">
-    <div class="form-group">
-        <label for="{{ $id ?? '' }}[]">{{ $label ?? '' }}</label>
-        <select class="select2 form-control form-control-sm"
-                @if ($multiple ?? false)
-                multiple="multiple"
-                @endif
-                name="{{ $id ?? '' }}" id="{{ $id ?? '' }}"
-                @if(isset($onchange))
-                onchange="{{$onchange}}"
-                @endif
+<div class="col-md-{{ $col ?? '' }} mb-3">
+    <label for="{{ $id ?? '' }}[]">
+        {{ $label ?? '' }}
+        @if($required ?? false)
+            <span style="color: red">*</span>
+        @endif
+    </label>
+    <select class="select2 form-control"
+            @if ($multiple ?? false)
+            multiple="multiple"
+            @endif
+            name="{{ $id ?? '' }}" id="{{ $id ?? '' }}"
+            @if(isset($onchange))
+            onchange="{{$onchange}}"
+            @endif
 
-                @if($required ?? false)
-                required
-            @endif>
-            <option value="">Selecione Opção</option>
-            {{ $slot ?? '' }}
-        </select>
-    </div>
+            @if($required ?? false)
+            required
+        @endif>
+        <option value="">Selecione Opção</option>
+        {{ $slot ?? '' }}
+    </select>
 </div>

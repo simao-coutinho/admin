@@ -1,9 +1,14 @@
-<div class="{{ !isset($col) ? 'col-md-' . 6 : $col == '-' ? 'col' : 'col-md-' . $col }} {{ $customClass ?? '' }}"
+<div class="mb-3 {{ !isset($col) ? 'col-md-' . 6 : $col == '-' ? 'col' : 'col-md-' . $col }} {{ $customClass ?? '' }}"
      id="formGroup{{$id ?? ""}}">
-    <div class="form-group form-group-sm">
-        <label for="{{ $id ?? "" }}">{{ $label ?? "" }}</label>
-        <input class="form-control form-control-sm" type="{{ $type ?? 'text' }}" name="{{ $id ?? "" }}"
-               id="{{ $id ?? "" }}" placeholder="{{ $label ?? "" }}"
+        <label for="{{ $id ?? "" }}">
+            {!! $label ?? "" !!}
+            @if($required ?? false)
+                <span style="color: red">*</span>
+            @endif
+        </label>
+        <input class="form-control" type="{{ $type ?? 'text' }}" name="{{ $id ?? "" }}"
+               id="{{ $id ?? "" }}"
+{{--               placeholder="{{ $label ?? "" }}"--}}
                value="{{ $value ?? '' }}"
                @if (isset($decimal))
                step="{{ $decimal }}"
@@ -27,5 +32,4 @@
         @if (isset($small))
             <small>{{ $small }}</small>
         @endif
-    </div>
 </div>

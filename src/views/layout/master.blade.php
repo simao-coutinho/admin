@@ -21,250 +21,740 @@
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('img/favicon/apple-icon-144x144.png') }}">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/favicon/apple-icon-152x152.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon/apple-icon-180x180.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('img/favicon/android-icon-192x192.png') }}">
     <link rel="shortcut icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/favicon/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('img/favicon/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('img/favicon/manifest.json') }}">
     <meta name="msapplication-TileImage" content="{{ asset('img/favicon/ms-icon-144x144.png') }}">
 
-@livewireStyles
+    @livewireStyles
 
-<!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.min.css"/>
-
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('css/backend/adminlte.min.css') }}">
-
-    <!-- Project Styles -->
-    <link rel="stylesheet" href="{{ asset('css/utils/utils.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/backend/backend.css') }}">
+    <!-- Bootstrap Css -->
+    <link href="{{ asset('css/backend/bootstrap.min.css') }}?v=1" id="bootstrap-style" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <!-- Icons Css -->
+    <link href="{{ asset('css/backend/icons.min.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- App Css-->
+    <link href="{{ asset('css/backend/app.min.css') }}?v=1" id="app-style" rel="stylesheet" type="text/css"/>
+    <!-- Admin Css -->
+    <link href="{{ asset('css/backend/admin.css') }}?v=4" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('css/utils/utils.css') }}?V=2" rel="stylesheet" type="text/css"/>
 
     @yield('myStyles')
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
-<!-- Site wrapper -->
-<div class="wrapper">
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('home') }}" class="nav-link" target="_blank">Website</a>
-            </li>
-        </ul>
 
-        <!-- Right navbar links -->
-        <div class="w-100 pr-3">
-            <div class="float-right flex">
-                <!-- Teams Dropdown -->
-                @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                    <div class="ml-3 relative">
-                        <x-jet-dropdown align="right" width="60">
-                            <x-slot name="trigger">
-                                <span class="inline-flex rounded-md">
-                                    <button type="button"
-                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
-                                        {{ Auth::user()->currentTeam->name }}
+<body data-sidebar="dark">
+<!-- Begin page -->
+<div id="layout-wrapper">
 
-                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                             viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                  d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                                                  clip-rule="evenodd"/>
-                                        </svg>
-                                    </button>
-                                </span>
-                            </x-slot>
+    <header id="page-topbar">
+        <div class="navbar-header">
+            <div class="d-flex">
+                <!-- LOGO -->
+                <div class="navbar-brand-box">
+                    <a href="{{ route('home') }}" class="logo logo-dark" target="_blank">
+                    <span class="logo-sm">
+                        <img src="{{ asset('img/website/jaChegou/favicon_1.png') }}" alt="" height="22">
+                    </span>
+                        <span class="logo-lg">
+                        <img src="{{ asset('img/website/jachegou_logo_color.png') }}" alt="" height="17">
+                    </span>
+                    </a>
 
-                            <x-slot name="content">
-                                <div class="w-60">
-                                    <!-- Team Management -->
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Team') }}
-                                    </div>
-
-                                    <!-- Team Settings -->
-                                    <x-jet-dropdown-link
-                                        href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                        {{ __('Team Settings') }}
-                                    </x-jet-dropdown-link>
-
-                                    @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                        <x-jet-dropdown-link href="{{ route('teams.create') }}">
-                                            {{ __('Create New Team') }}
-                                        </x-jet-dropdown-link>
-
-                                        <div class="border-t border-gray-100"></div>
-
-                                        <!-- Team Switcher -->
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
-                                            {{ __('Switch Teams') }}
-                                        </div>
-
-                                        @foreach (Auth::user()->allTeams() as $team)
-                                            <x-jet-switchable-team :team="$team"/>
-                                        @endforeach
-                                    @endcan
-                                </div>
-                            </x-slot>
-                        </x-jet-dropdown>
-                    </div>
-            @endif
-
-            <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
-                    <x-jet-dropdown align="right" width="48">
-                        <x-slot name="trigger">
-                            @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                <button
-                                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                    <img class="h-8 w-8 rounded-full object-cover"
-                                         src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
-
-                                    <span class="ml-2 user-name">
-                                        {{ Auth::user()->name }}
-                                    </span>
-                                </button>
-                            @else
-                                <span class="inline-flex rounded-md">
-                                    <button type="button"
-                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
-                                        {{ Auth::user()->name }}
-
-                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                             viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                  clip-rule="evenodd"/>
-                                        </svg>
-                                    </button>
-                                </span>
-                            @endif
-                        </x-slot>
-
-                        <x-slot name="content">
-                            <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
-                            </div>
-
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
-                            </x-jet-dropdown-link>
-
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                    {{ __('API Tokens') }}
-                                </x-jet-dropdown-link>
-                            @endif
-
-                            <div class="border-t border-gray-100"></div>
-
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-jet-dropdown-link href="{{ route('logout') }}"
-                                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-jet-dropdown-link>
-                            </form>
-                        </x-slot>
-                    </x-jet-dropdown>
+                    <a href="{{ route('home') }}" class="logo logo-light" target="_blank">
+                        <span class="logo-sm">
+                            <img src="{{ asset('img/website/jaChegou/favicon_3.png') }}" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="{{ asset('img/website/jachegou_logo_white.png') }}" alt="" height="35">
+                        </span>
+                    </a>
                 </div>
+
+                <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect"
+                        id="vertical-menu-btn">
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+
+                <!-- App Search-->
+                {{--                <form class="app-search d-none d-lg-block">--}}
+                {{--                    <div class="position-relative">--}}
+                {{--                        <input type="text" class="form-control" placeholder="Search...">--}}
+                {{--                        <span class="bx bx-search-alt"></span>--}}
+                {{--                    </div>--}}
+                {{--                </form>--}}
+
+                {{--                <div class="dropdown dropdown-mega d-none d-lg-block ms-2">--}}
+                {{--                    <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"--}}
+                {{--                            aria-haspopup="false" aria-expanded="false">--}}
+                {{--                        <span key="t-megamenu">Mega Menu</span>--}}
+                {{--                        <i class="mdi mdi-chevron-down"></i>--}}
+                {{--                    </button>--}}
+                {{--                    <div class="dropdown-menu dropdown-megamenu">--}}
+                {{--                        <div class="row">--}}
+                {{--                            <div class="col-sm-8">--}}
+
+                {{--                                <div class="row">--}}
+                {{--                                    <div class="col-md-4">--}}
+                {{--                                        <h5 class="font-size-14 mt-0" key="t-ui-components">UI Components</h5>--}}
+                {{--                                        <ul class="list-unstyled megamenu-list">--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-lightbox">Lightbox</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-range-slider">Range Slider</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-sweet-alert">Sweet-Alert</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-rating">Rating</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-forms">Forms</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-tables">Tables</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-charts">Charts</a>--}}
+                {{--                                            </li>--}}
+                {{--                                        </ul>--}}
+                {{--                                    </div>--}}
+
+                {{--                                    <div class="col-md-4">--}}
+                {{--                                        <h5 class="font-size-14 mt-0" key="t-applications">Applications</h5>--}}
+                {{--                                        <ul class="list-unstyled megamenu-list">--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-ecommerce">Ecommerce</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-calendar">Calendar</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-email">Email</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-projects">Projects</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-tasks">Tasks</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-contacts">Contacts</a>--}}
+                {{--                                            </li>--}}
+                {{--                                        </ul>--}}
+                {{--                                    </div>--}}
+
+                {{--                                    <div class="col-md-4">--}}
+                {{--                                        <h5 class="font-size-14 mt-0" key="t-extra-pages">Extra Pages</h5>--}}
+                {{--                                        <ul class="list-unstyled megamenu-list">--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-light-sidebar">Light Sidebar</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-compact-sidebar">Compact--}}
+                {{--                                                    Sidebar</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-horizontal">Horizontal Layout</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-maintenance">Maintenance</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-coming-soon">Coming Soon</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-timeline">Timeline</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-faqs">FAQs</a>--}}
+                {{--                                            </li>--}}
+
+                {{--                                        </ul>--}}
+                {{--                                    </div>--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+                {{--                            <div class="col-sm-4">--}}
+                {{--                                <div class="row">--}}
+                {{--                                    <div class="col-sm-6">--}}
+                {{--                                        <h5 class="font-size-14 mt-0" key="t-ui-components">UI Components</h5>--}}
+                {{--                                        <ul class="list-unstyled megamenu-list">--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-lightbox">Lightbox</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-range-slider">Range Slider</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-sweet-alert">Sweet-Alert</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-rating">Rating</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-forms">Forms</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-tables">Tables</a>--}}
+                {{--                                            </li>--}}
+                {{--                                            <li>--}}
+                {{--                                                <a href="javascript:void(0);" key="t-charts">Charts</a>--}}
+                {{--                                            </li>--}}
+                {{--                                        </ul>--}}
+                {{--                                    </div>--}}
+
+                {{--                                    <div class="col-sm-5">--}}
+                {{--                                        <div>--}}
+                {{--                                            <img src="assets/images/megamenu-img.png" alt=""--}}
+                {{--                                                 class="img-fluid mx-auto d-block">--}}
+                {{--                                        </div>--}}
+                {{--                                    </div>--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+
+                {{--                    </div>--}}
+                {{--                </div>--}}
+            </div>
+
+            <div class="d-flex">
+                {{--                <div class="dropdown d-inline-block d-lg-none ms-2">--}}
+                {{--                    <button type="button" class="btn header-item noti-icon waves-effect"--}}
+                {{--                            id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"--}}
+                {{--                            aria-expanded="false">--}}
+                {{--                        <i class="mdi mdi-magnify"></i>--}}
+                {{--                    </button>--}}
+                {{--                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"--}}
+                {{--                         aria-labelledby="page-header-search-dropdown">--}}
+
+                {{--                        <form class="p-3">--}}
+                {{--                            <div class="form-group m-0">--}}
+                {{--                                <div class="input-group">--}}
+                {{--                                    <input type="text" class="form-control" placeholder="Search ..."--}}
+                {{--                                           aria-label="Recipient's username">--}}
+                {{--                                    <div class="input-group-append">--}}
+                {{--                                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i>--}}
+                {{--                                        </button>--}}
+                {{--                                    </div>--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+                {{--                        </form>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+
+                {{--                <div class="dropdown d-inline-block">--}}
+                {{--                    <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"--}}
+                {{--                            aria-haspopup="true" aria-expanded="false">--}}
+                {{--                        <img src="assets/images/flags/us.jpg" alt="Header Language" height="16"></button>--}}
+                {{--                    <div class="dropdown-menu dropdown-menu-end">--}}
+
+                {{--                        <!-- item-->--}}
+
+                {{--                        <a href="http://localhost:8080/lang/en" class="dropdown-item notify-item language"--}}
+                {{--                           data-lang="en">--}}
+                {{--                            <img src="assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span--}}
+                {{--                                class="align-middle">English</span>--}}
+                {{--                        </a>--}}
+
+                {{--                        <a href="http://localhost:8080/lang/es" class="dropdown-item notify-item language"--}}
+                {{--                           data-lang="sp">--}}
+                {{--                            <img src="assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span--}}
+                {{--                                class="align-middle">Spanish</span>--}}
+                {{--                        </a>--}}
+
+                {{--                        <a href="http://localhost:8080/lang/de" class="dropdown-item notify-item language"--}}
+                {{--                           data-lang="gr">--}}
+                {{--                            <img src="assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span--}}
+                {{--                                class="align-middle">German</span>--}}
+                {{--                        </a>--}}
+
+                {{--                        <a href="http://localhost:8080/lang/it" class="dropdown-item notify-item language"--}}
+                {{--                           data-lang="it">--}}
+                {{--                            <img src="assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span--}}
+                {{--                                class="align-middle">Italian</span>--}}
+                {{--                        </a>--}}
+
+                {{--                        <a href="http://localhost:8080/lang/ru" class="dropdown-item notify-item language"--}}
+                {{--                           data-lang="ru">--}}
+                {{--                            <img src="assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span--}}
+                {{--                                class="align-middle">Russian</span>--}}
+                {{--                        </a>--}}
+
+                {{--                    </div>--}}
+                {{--                </div>--}}
+
+                {{--                <div class="dropdown d-none d-lg-inline-block ms-1">--}}
+                {{--                    <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="dropdown"--}}
+                {{--                            aria-haspopup="true" aria-expanded="false">--}}
+                {{--                        <i class="bx bx-customize"></i>--}}
+                {{--                    </button>--}}
+                {{--                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">--}}
+                {{--                        <div class="px-lg-2">--}}
+                {{--                            <div class="row g-0">--}}
+                {{--                                <div class="col">--}}
+                {{--                                    <a class="dropdown-icon-item" href="index.html#">--}}
+                {{--                                        <img src="assets/images/brands/github.png" alt="Github">--}}
+                {{--                                        <span>GitHub</span>--}}
+                {{--                                    </a>--}}
+                {{--                                </div>--}}
+                {{--                                <div class="col">--}}
+                {{--                                    <a class="dropdown-icon-item" href="index.html#">--}}
+                {{--                                        <img src="assets/images/brands/bitbucket.png" alt="bitbucket">--}}
+                {{--                                        <span>Bitbucket</span>--}}
+                {{--                                    </a>--}}
+                {{--                                </div>--}}
+                {{--                                <div class="col">--}}
+                {{--                                    <a class="dropdown-icon-item" href="index.html#">--}}
+                {{--                                        <img src="assets/images/brands/dribbble.png" alt="dribbble">--}}
+                {{--                                        <span>Dribbble</span>--}}
+                {{--                                    </a>--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+
+                {{--                            <div class="row g-0">--}}
+                {{--                                <div class="col">--}}
+                {{--                                    <a class="dropdown-icon-item" href="index.html#">--}}
+                {{--                                        <img src="assets/images/brands/dropbox.png" alt="dropbox">--}}
+                {{--                                        <span>Dropbox</span>--}}
+                {{--                                    </a>--}}
+                {{--                                </div>--}}
+                {{--                                <div class="col">--}}
+                {{--                                    <a class="dropdown-icon-item" href="index.html#">--}}
+                {{--                                        <img src="assets/images/brands/mail_chimp.png" alt="mail_chimp">--}}
+                {{--                                        <span>Mail Chimp</span>--}}
+                {{--                                    </a>--}}
+                {{--                                </div>--}}
+                {{--                                <div class="col">--}}
+                {{--                                    <a class="dropdown-icon-item" href="index.html#">--}}
+                {{--                                        <img src="assets/images/brands/slack.png" alt="slack">--}}
+                {{--                                        <span>Slack</span>--}}
+                {{--                                    </a>--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+
+                {{--                <div class="dropdown d-none d-lg-inline-block ms-1">--}}
+                {{--                    <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">--}}
+                {{--                        <i class="bx bx-fullscreen"></i>--}}
+                {{--                    </button>--}}
+                {{--                </div>--}}
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon waves-effect"
+                            id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        <i class="bx bx-bell bx-tada"></i>
+                        <span class="badge bg-danger rounded-pill">3</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                         aria-labelledby="page-header-notifications-dropdown">
+{{--                        <div class="p-3">--}}
+{{--                            <div class="row align-items-center">--}}
+{{--                                <div class="col">--}}
+{{--                                    <h6 class="m-0" key="t-notifications"> Notifications </h6>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-auto">--}}
+{{--                                    <a href="index.html#!" class="small" key="t-view-all"> Files.View All </a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div data-simplebar style="max-height: 230px;">--}}
+{{--                            <a href="" class="text-reset notification-item">--}}
+{{--                                <div class="d-flex">--}}
+{{--                                    <div class="avatar-xs me-3">--}}
+{{--                                    <span class="avatar-title bg-primary rounded-circle font-size-16">--}}
+{{--                                        <i class="bx bx-cart"></i>--}}
+{{--                                    </span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="flex-grow-1">--}}
+{{--                                        <h6 class="mt-0 mb-1" key="t-your-order">Your order is placed</h6>--}}
+{{--                                        <div class="font-size-12 text-muted">--}}
+{{--                                            <p class="mb-1" key="t-grammer">If several languages coalesce the--}}
+{{--                                                grammar</p>--}}
+{{--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span>--}}
+{{--                                            </p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                            <a href="" class="text-reset notification-item">--}}
+{{--                                <div class="d-flex">--}}
+{{--                                    <img src="assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs"--}}
+{{--                                         alt="user-pic">--}}
+{{--                                    <div class="flex-grow-1">--}}
+{{--                                        <h6 class="mt-0 mb-1">James Lemire</h6>--}}
+{{--                                        <div class="font-size-12 text-muted">--}}
+{{--                                            <p class="mb-1" key="t-simplified">It will seem like simplified English.</p>--}}
+{{--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span--}}
+{{--                                                    key="t-hours-ago">1 hours ago</span></p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                            <a href="" class="text-reset notification-item">--}}
+{{--                                <div class="d-flex">--}}
+{{--                                    <div class="avatar-xs me-3">--}}
+{{--                                    <span class="avatar-title bg-success rounded-circle font-size-16">--}}
+{{--                                        <i class="bx bx-badge-check"></i>--}}
+{{--                                    </span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="flex-grow-1">--}}
+{{--                                        <h6 class="mt-0 mb-1" key="t-shipped">Your item is shipped</h6>--}}
+{{--                                        <div class="font-size-12 text-muted">--}}
+{{--                                            <p class="mb-1" key="t-grammer">If several languages coalesce the--}}
+{{--                                                grammar</p>--}}
+{{--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span>--}}
+{{--                                            </p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+
+{{--                            <a href="" class="text-reset notification-item">--}}
+{{--                                <div class="d-flex">--}}
+{{--                                    <img src="assets/images/users/avatar-4.jpg" class="me-3 rounded-circle avatar-xs"--}}
+{{--                                         alt="user-pic">--}}
+{{--                                    <div class="flex-grow-1">--}}
+{{--                                        <h6 class="mt-0 mb-1">Salena Layfield</h6>--}}
+{{--                                        <div class="font-size-12 text-muted">--}}
+{{--                                            <p class="mb-1" key="t-occidental">As a skeptical Cambridge friend of mine--}}
+{{--                                                occidental.</p>--}}
+{{--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span--}}
+{{--                                                    key="t-hours-ago">1 hours ago</span></p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                        <div class="p-2 border-top d-grid">--}}
+{{--                            <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">--}}
+{{--                                <i class="mdi mdi-arrow-right-circle me-1"></i> <span--}}
+{{--                                    key="t-view-more">View More..</span>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+                    </div>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" src="{{ Auth::user()->profile_photo_url }}"
+                             alt="{{ Auth::user()->name }}">
+                        <span class="d-none d-xl-inline-block ms-1"
+                              key="t-{{ Auth::user()->name }}">{{ Auth::user()->name }}</span>
+                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a class="dropdown-item" href="{{ route('profile.show') }}"><i
+                                class="bx bx-user font-size-16 align-middle me-1"></i> <span
+                                key="t-profile">Perfil</span></a>
+                        {{--                        <a class="dropdown-item" href="index.html#"><i--}}
+                        {{--                                class="bx bx-wallet font-size-16 align-middle me-1"></i> --}}
+                        {{--                            <span key="t-my-wallet">My Wallet</span></a>--}}
+                        {{--                        <a class="dropdown-item d-block" href="index.html#"><span--}}
+                        {{--                                class="badge bg-success float-end">11</span><i--}}
+                        {{--                                class="bx bx-wrench font-size-16 align-middle me-1"></i> <span--}}
+                        {{--                                key="t-settings">Settings</span></a>--}}
+                        {{--                        <a class="dropdown-item" href="auth-lock-screen.html"><i--}}
+                        {{--                                class="bx bx-lock-open font-size-16 align-middle me-1"></i> --}}
+                        {{--                            <span key="t-lock-screen">Lock screen</span></a>--}}
+                        <div class="dropdown-divider"></div>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <a class="dropdown-item text-danger" href="auth-login.html"
+                               onclick="event.preventDefault(); this.closest('form').submit();">
+                                <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
+                                <span key="t-logout">Logout</span></a>
+                        </form>
+
+                        {{--                            <form method="POST" action="{{ route('logout') }}">--}}
+                        {{--                                @csrf--}}
+
+                        {{--                                <x-jet-dropdown-link href="{{ route('logout') }}"--}}
+                        {{--                                                     onclick="event.preventDefault();--}}
+                        {{--                                                this.closest('form').submit();">--}}
+                        {{--                                    {{ __('Log Out') }}--}}
+                        {{--                                </x-jet-dropdown-link>--}}
+                        {{--                            </form>--}}
+                    </div>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                        <i class="bx bx-cog bx-spin"></i>
+                    </button>
+                </div>
+
             </div>
         </div>
-    </nav>
-    <!-- /.navbar -->
+    </header>
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu">
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        @if (env('APP_LOGO') !== null)
-            <a href="{{ route('home') }}" class="brand-link" target="_blank">
-                <img src="{{ env('APP_LOGO') }}" alt="{{ env('APP_NAME') }} Logo"
-                     style="width: 200px; margin-top: 8px; margin-left: 8px;">
-            </a>
-    @endif
+        <div data-simplebar class="h-100">
 
-
-    <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
-                    @if(View::exists('components.admin-menu'))
-                        <x-admin-menu/>
-                    @else
-                        <li style="color: white">
-                            Cria um componente nas tuas<br>view com admin-menu.blade.php<br>para aparecer aqui
-                        </li>
-                    @endif
-
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <!-- Left Menu Start -->
+                <ul class="metismenu list-unstyled" id="side-menu">
+                    <x-admin-menu/>
                 </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
+            </div>
+            <!-- Sidebar -->
         </div>
-        <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        @yield('content')
     </div>
-    <!-- /.content-wrapper -->
+    <!-- Left Sidebar End -->
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            @if (env('APP_VERSION') !== null)
-                <b>Version</b> {{env('APP_VERSION')}}
-            @endif
+        <div class="page-content">
+            <div class="container-fluid">
+                @yield('content')
+            </div>
+            <!-- container-fluid -->
         </div>
-        @if (Lang::has("general.copyright"))
-            @lang('general.copyright', ['date' => date('Y')])
-        @endif
-    </footer>
+        <!-- End Page-content -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+        {{--        <!-- Transaction Modal -->--}}
+        {{--        <div class="modal fade transaction-detailModal" tabindex="-1" role="dialog"--}}
+        {{--             aria-labelledby="transaction-detailModalLabel" aria-hidden="true">--}}
+        {{--            <div class="modal-dialog modal-dialog-centered" role="document">--}}
+        {{--                <div class="modal-content">--}}
+        {{--                    <div class="modal-header">--}}
+        {{--                        <h5 class="modal-title" id="transaction-detailModalLabel">Order Details</h5>--}}
+        {{--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+        {{--                    </div>--}}
+        {{--                    <div class="modal-body">--}}
+        {{--                        <p class="mb-2">Product id: <span class="text-primary">#SK2540</span></p>--}}
+        {{--                        <p class="mb-4">Billing Name: <span class="text-primary">Neal Matthews</span></p>--}}
+
+        {{--                        <div class="table-responsive">--}}
+        {{--                            <table class="table align-middle table-nowrap">--}}
+        {{--                                <thead>--}}
+        {{--                                <tr>--}}
+        {{--                                    <th scope="col">Product</th>--}}
+        {{--                                    <th scope="col">Product Name</th>--}}
+        {{--                                    <th scope="col">Price</th>--}}
+        {{--                                </tr>--}}
+        {{--                                </thead>--}}
+        {{--                                <tbody>--}}
+        {{--                                <tr>--}}
+        {{--                                    <th scope="row">--}}
+        {{--                                        <div>--}}
+        {{--                                            <img src="assets/images/product/img-7.png" alt="" class="avatar-sm">--}}
+        {{--                                        </div>--}}
+        {{--                                    </th>--}}
+        {{--                                    <td>--}}
+        {{--                                        <div>--}}
+        {{--                                            <h5 class="text-truncate font-size-14">Wireless Headphone (Black)</h5>--}}
+        {{--                                            <p class="text-muted mb-0">$ 225 x 1</p>--}}
+        {{--                                        </div>--}}
+        {{--                                    </td>--}}
+        {{--                                    <td>$ 255</td>--}}
+        {{--                                </tr>--}}
+        {{--                                <tr>--}}
+        {{--                                    <th scope="row">--}}
+        {{--                                        <div>--}}
+        {{--                                            <img src="assets/images/product/img-4.png" alt="" class="avatar-sm">--}}
+        {{--                                        </div>--}}
+        {{--                                    </th>--}}
+        {{--                                    <td>--}}
+        {{--                                        <div>--}}
+        {{--                                            <h5 class="text-truncate font-size-14">Phone patterned cases</h5>--}}
+        {{--                                            <p class="text-muted mb-0">$ 145 x 1</p>--}}
+        {{--                                        </div>--}}
+        {{--                                    </td>--}}
+        {{--                                    <td>$ 145</td>--}}
+        {{--                                </tr>--}}
+        {{--                                <tr>--}}
+        {{--                                    <td colspan="2">--}}
+        {{--                                        <h6 class="m-0 text-right">Sub Total:</h6>--}}
+        {{--                                    </td>--}}
+        {{--                                    <td>--}}
+        {{--                                        $ 400--}}
+        {{--                                    </td>--}}
+        {{--                                </tr>--}}
+        {{--                                <tr>--}}
+        {{--                                    <td colspan="2">--}}
+        {{--                                        <h6 class="m-0 text-right">Shipping:</h6>--}}
+        {{--                                    </td>--}}
+        {{--                                    <td>--}}
+        {{--                                        Free--}}
+        {{--                                    </td>--}}
+        {{--                                </tr>--}}
+        {{--                                <tr>--}}
+        {{--                                    <td colspan="2">--}}
+        {{--                                        <h6 class="m-0 text-right">Total:</h6>--}}
+        {{--                                    </td>--}}
+        {{--                                    <td>--}}
+        {{--                                        $ 400--}}
+        {{--                                    </td>--}}
+        {{--                                </tr>--}}
+        {{--                                </tbody>--}}
+        {{--                            </table>--}}
+        {{--                        </div>--}}
+        {{--                    </div>--}}
+        {{--                    <div class="modal-footer">--}}
+        {{--                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
+        {{--        <!-- end modal -->--}}
+
+        {{--        <!-- subscribeModal -->--}}
+        {{--        <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"--}}
+        {{--             aria-hidden="true">--}}
+        {{--            <div class="modal-dialog modal-dialog-centered">--}}
+        {{--                <div class="modal-content">--}}
+        {{--                    <div class="modal-header border-bottom-0">--}}
+        {{--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+        {{--                    </div>--}}
+        {{--                    <div class="modal-body">--}}
+        {{--                        <div class="text-center mb-4">--}}
+        {{--                            <div class="avatar-md mx-auto mb-4">--}}
+        {{--                                <div class="avatar-title bg-light rounded-circle text-primary h1">--}}
+        {{--                                    <i class="mdi mdi-email-open"></i>--}}
+        {{--                                </div>--}}
+        {{--                            </div>--}}
+
+        {{--                            <div class="row justify-content-center">--}}
+        {{--                                <div class="col-xl-10">--}}
+        {{--                                    <h4 class="text-primary">Subscribe !</h4>--}}
+        {{--                                    <p class="text-muted font-size-14 mb-4">Subscribe our newletter and get notification--}}
+        {{--                                        to stay update.</p>--}}
+
+        {{--                                    <div class="input-group bg-light rounded">--}}
+        {{--                                        <input type="email" class="form-control bg-transparent border-0"--}}
+        {{--                                               placeholder="Enter Email address" aria-label="Recipient's username"--}}
+        {{--                                               aria-describedby="button-addon2">--}}
+
+        {{--                                        <button class="btn btn-primary" type="button" id="button-addon2">--}}
+        {{--                                            <i class="bx bxs-paper-plane"></i>--}}
+        {{--                                        </button>--}}
+
+        {{--                                    </div>--}}
+
+        {{--                                </div>--}}
+        {{--                            </div>--}}
+        {{--                        </div>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
+        {{--        <!-- end modal -->--}}
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <script>document.write(new Date().getFullYear())</script>
+                        Já Chegou © 2021
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-end d-none d-sm-block">
+                            <a href="https://anmconnection.com" target="_blank">
+                                 Developed by ANM Connection - Mkt & Web Specialists
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- end main content-->
+
 </div>
-<!-- ./wrapper -->
+<!-- END layout-wrapper -->
+
+<!-- Right Sidebar -->
+<div class="right-bar">
+    <div data-simplebar class="h-100">
+        <div class="rightbar-title d-flex align-items-center px-3 py-4">
+
+            <h5 class="m-0 me-2">Settings</h5>
+
+            <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                <i class="mdi mdi-close noti-icon"></i>
+            </a>
+        </div>
+
+        <!-- Settings -->
+        <hr class="mt-0"/>
+        {{--        <h6 class="text-center mb-0">Choose Layouts</h6>--}}
+
+        {{--        <div class="p-4">--}}
+        {{--            <div class="mb-2">--}}
+        {{--                <img src="assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="">--}}
+        {{--            </div>--}}
+
+        {{--            <div class="form-check form-switch mb-3">--}}
+        {{--                <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>--}}
+        {{--                <label class="form-check-label" for="light-mode-switch">Light Mode</label>--}}
+        {{--            </div>--}}
+
+        {{--            <div class="mb-2">--}}
+        {{--                <img src="assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="">--}}
+        {{--            </div>--}}
+        {{--            <div class="form-check form-switch mb-3">--}}
+        {{--                <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch"--}}
+        {{--                       data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css">--}}
+        {{--                <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>--}}
+        {{--            </div>--}}
+
+        {{--            <div class="mb-2">--}}
+        {{--                <img src="assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="">--}}
+        {{--            </div>--}}
+        {{--            <div class="form-check form-switch mb-5">--}}
+        {{--                <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch"--}}
+        {{--                       data-appStyle="assets/css/app-rtl.min.css">--}}
+        {{--                <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>--}}
+        {{--            </div>--}}
+
+        {{--            <div class="mb-2">--}}
+        {{--                <img src="assets/images/layouts/layout-4.jpg" class="img-thumbnail" alt="layout images">--}}
+        {{--            </div>--}}
+        {{--            <div class="form-check form-switch mb-5">--}}
+        {{--                <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">--}}
+        {{--                <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>--}}
+        {{--            </div>--}}
+
+        {{--        </div>--}}
+
+    </div> <!-- end slimscroll-menu-->
+</div>
+<!-- /Right-bar -->
+
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+<!-- JAVASCRIPT -->
+<script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('libs/metismenu/metisMenu.min.js') }}"></script>
+<script src="{{ asset('libs/simplebar/simplebar.min.js') }}"></script>
+<script src="{{ asset('libs/node-waves/waves.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 
 @livewireScripts
 
-<!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- Bootstrap 4 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"
-        integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-<!-- overlayScrollbars -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('js/backend/adminlte.min.js') }}"></script>
+<!-- App js -->
+<script src="{{ asset('js/utils/utils.js') }}"></script>
+<script src="{{ asset('js/backend/app.js') }}"></script>
 
-<!-- Project Styles -->
-<link rel="stylesheet" href="{{ asset('js/utils/utils.js') }}">
-
+<!-- dropzone plugin -->
+<script src="{{ asset('libs/dropzone/min/dropzone.min.js') }}"></script>
 
 @yield('myScripts')
 </body>
+
 </html>

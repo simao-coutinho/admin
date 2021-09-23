@@ -1,1 +1,1 @@
-<span class="badge badge-{{ $class ?? 'success' }} text-bold fs-12 p-1">{{ $label ?? '' }}</span>
+<span class="badge badge-pill badge-soft-{{ $class ?? 'success' }} font-size-12">{{ $label ?? '' }}</span>

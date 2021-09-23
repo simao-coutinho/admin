@@ -25,7 +25,7 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //$this->app->make('SimaoCoutinho\Admin\Controllers\AdminController');
     }
 
     /**
@@ -52,9 +52,9 @@ class AdminServiceProvider extends ServiceProvider
 //        ]);
 
         // Migrations
-        $this->publishes([
-            __DIR__ . '/database/migrations' => database_path('migrations'),
-        ], 'admin-migrations');
+//        $this->publishes([
+//            __DIR__ . '/database/migrations' => database_path('migrations'),
+//        ], 'admin-migrations');
 
         $this->publishes([
             __DIR__ . '/public/' => public_path(''),
@@ -64,17 +64,17 @@ class AdminServiceProvider extends ServiceProvider
             __DIR__ . '/public_views' => resource_path('views'),
         ], "admin-views");
 
-        if ($this->app->runningInConsole()) {
-            // Para criar comandos de instalaçao (a ver)
-            $this->commands([
-                InstallCommand::class,
-            ]);
-        }
+//        if ($this->app->runningInConsole()) {
+//            // Para criar comandos de instalaçao (a ver)
+//            $this->commands([
+//                InstallCommand::class,
+//            ]);
+//        }
 
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
 
         // Se Tiver traduções
-        $this->loadTranslationsFrom(__DIR__ . '/lang', 'admin');
+        //$this->loadTranslationsFrom(__DIR__ . '/lang', 'admin');
         //$this->publishes([
         //        __DIR__.'/../resources/lang' => resource_path('lang/vendor/courier'),
         //    ]);

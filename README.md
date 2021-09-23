@@ -16,14 +16,9 @@ Publish Public Assets
 php artisan vendor:publish --tag="admin-public"
 </pre>
 
-Publish Migrations
-<pre>
-php artisan vendor:publish --tag="admin-migrations"
-</pre>
-
 Publish Views
 <pre>
-php artisan vendor:publish --tag="admin-views"
+php artisan vendor:publish --tag="admin-views" --force
 </pre>
 
 Remove from app.css

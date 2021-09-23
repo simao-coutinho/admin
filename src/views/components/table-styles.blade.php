@@ -3,10 +3,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.bootstrap4.min.css"/>
 
 <style>
-    .dt-buttons {
-        position: absolute;
-    }
-
     .dropdown-item.active, .dropdown-item:active {
         color: #fff;
         text-decoration: none;

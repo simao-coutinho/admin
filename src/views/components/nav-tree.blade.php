@@ -1,15 +1,12 @@
-<li class="nav-item {{ isset($route) ? Str::startsWith(url()->current(),$route) ? 'menu-open' : '' : '' }} {{ $customClass ?? '' }}">
-    <a href="#" class="nav-link">
+<li>
+    <a href="javascript: void(0);" class="waves-effect {{ isset($route) ? Str::startsWith(url()->current(),$route) ? 'mm-active' : '' : '' }} {{ $customClass ?? '' }}">
         {{ $icon ?? '' }}
-        <p>
-            {{ $label ?? '' }}
-            <i class="fas fa-angle-right right"></i>
-            @if (isset($span))
-                <span class="badge badge-info right">{{ $span }}</span>
-            @endif
-        </p>
+        @if (isset($badge))
+        <span class="badge rounded-pill {{ $badgeClass ?? 'bg-info' }} float-end">{{ $badge }}</span>
+        @endif
+        <span key="t-dashboards">{{ $label ?? '' }}</span>
     </a>
-    <ul class="nav nav-treeview">
+    <ul class="sub-menu {{ isset($route) ? Str::startsWith(url()->current(),$route) ? 'mm-show' : '' : '' }}" aria-expanded="false">
         {{ $slot }}
     </ul>
 </li>

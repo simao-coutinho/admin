@@ -1,16 +1,19 @@
-<div class="col-md-{{ $col ?? '' }}">
-    <div class="form-group">
-        <label for="{{ $id ?? '' }}">{{ $label ?? '' }}</label>
-        <select class="form-control form-control-sm" name="{{ $id ?? '' }}" id="{{ $id ?? '' }}"
-                @if(isset($onchange))
-                onchange="{{$onchange}}"
-                @endif
+<div class="mb-3 col-md-{{ $col ?? '' }}">
+    <label for="{{ $id ?? '' }}">
+        {{ $label ?? '' }}
+        @if($required ?? false)
+            <span style="color: red">*</span>
+        @endif
+    </label>
+    <select class="form-control" name="{{ $id ?? '' }}" id="{{ $id ?? '' }}"
+            @if(isset($onchange))
+            onchange="{{$onchange}}"
+            @endif
 
-                @if(isset($required) && $required)
-                required
-            @endif>
-            <option value="">Selecione Opção</option>
-            {{ $slot ?? '' }}
-        </select>
-    </div>
+            @if($required ?? false)
+            required
+        @endif>
+        <option value="">Selecione Opção</option>
+        {{ $slot ?? '' }}
+    </select>
 </div>

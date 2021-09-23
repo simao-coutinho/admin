@@ -1,4 +1,4 @@
-var DOMAIN = $('meta[name="domain"]').attr('content');
+var domain = "https://myshowathome.com/";
 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 var delay = 100;
 
@@ -73,7 +73,7 @@ function update(type, id, url) {
     }
 }
 
-function deleteItem(id, url, backUrl) {
+function deleteItem(id, url) {
     var response = confirm("Do you want to delete this item?");
 
     if (response === true) {
@@ -82,13 +82,13 @@ function deleteItem(id, url, backUrl) {
 
         $.ajax({
             type: "POST",
-            url: url,
+            url: domain + url + "delete",
             data: {_token: CSRF_TOKEN, id: id},
             success: function (response) {
                 btn.innerHTML = "Deleted";
 
                 setTimeout(function () {
-                    window.location.href = backUrl
+                    window.location.href = domain + url
                 }, delay);
             }
         });

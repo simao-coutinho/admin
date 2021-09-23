@@ -1,11 +1,18 @@
 @if(isset($route))
-    <a href="{{ $route }}">
+    <a href="{{ $route }}"
+       @if(isset($target))
+
+       target="{{ $target }}"
+       @endif
+       @if($download ?? false)
+       download
+        @endif>
         @endif
-        <button id="{{ $id ?? '' }}" name="{{ $id ?? '' }}"
-            class="btn btn-sm {{ $buttonClass ?? 'btn-success' }} backend-button ml-md-2"
-            @if(isset($onClick))
-            onclick="{{ $onClick }}"
-            @endif>
+        <button type="button" id="{{ $id ?? '' }}" name="{{ $id ?? '' }}" type="{{ $type ?? 'button' }}"
+                @if(isset($onClick))
+                onclick="{{ $onClick }}"
+                @endif
+                class="btn {{ $buttonClass ?? 'btn-success' }} btn-rounded waves-effect waves-light mb-2 me-2">
             {{ $slot ?? '' }} {{ $title ?? '' }}
         </button>
         @if(isset($route))
