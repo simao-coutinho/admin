@@ -1,3 +1,21 @@
+# Override Redirect on PageExpired
+<strong>In file: </strong>app/Exceptions/Handler.php
+
+<strong>Add:</strong>
+
+<pre>
+public function render($request, Throwable $e)
+    {
+        if ($e instanceof TokenMismatchException) {
+
+            return redirect('/login');
+
+        }
+
+        return parent::render($request, $e);
+    }
+</pre>
+
 # Override Login Redirect
 ### Link: https://laravel-news.com/override-login-redirects-in-jetstream-fortify
 
