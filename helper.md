@@ -59,3 +59,29 @@ public function boot()
     $this->app->singleton(TwoFactorLoginResponseContract::class, LoginResponse::class);
 }
 </pre>
+
+# Check if user is active on login
+
+<strong>In file: </strong>app/Providers/JetstreamServiceProvider.php
+
+<strong>Add:</strong>
+
+<pre>
+public function boot()
+    {
+        ...
+
+        // Verifica se o user está ativo
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->email)->first();
+
+            if ($user && Hash::check($request->password, $user->password)) {
+                if ($user->state == 1) {
+                    return $user;
+                }
+            }
+
+            return null;
+        });
+    }
+</pre>
