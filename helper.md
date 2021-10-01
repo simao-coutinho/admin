@@ -16,7 +16,7 @@ public function render($request, Throwable $e)
     }
 </pre>
 
-# Override Login Redirect
+# Override Login & Register Redirect
 ### Link: https://laravel-news.com/override-login-redirects-in-jetstream-fortify
 
 <strong>Create:</strong> app/Http/Responses/LoginResponse.class
@@ -35,7 +35,29 @@ class LoginResponse implements LoginResponseContract
     public function toResponse($request)
     {
         if (Auth::user()->type == 'client') {
-            return redirect()->back();
+            return redirect()->route('home');
+        } else {
+            return  redirect()->route('dashboard');
+        }
+    }
+}
+</pre>
+
+<strong>Create:</strong> app/Http/Responses/RegisterResponse.class
+
+<strong>Copy:</strong>
+
+<pre>
+use Auth;
+use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
+
+class RegisterResponse implements RegisterResponseContract
+{
+
+    public function toResponse($request)
+    {
+        if (Auth::user()->type == 'client') {
+            return redirect()->route('home');
         } else {
             return  redirect()->route('dashboard');
         }
@@ -49,6 +71,7 @@ class LoginResponse implements LoginResponseContract
 <pre>
 use App\Http\Responses\LoginResponse;
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
+use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use Laravel\Fortify\Contracts\TwoFactorLoginResponse as TwoFactorLoginResponseContract;
 
 public function boot()
@@ -56,6 +79,7 @@ public function boot()
     // ...
     
     $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
+    $this->app->singleton(RegisterResponseContract::class, RegisterResponse::class);
     $this->app->singleton(TwoFactorLoginResponseContract::class, LoginResponse::class);
 }
 </pre>
