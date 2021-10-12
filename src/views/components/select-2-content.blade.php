@@ -1,5 +1,5 @@
-<div class="col-md-{{ $col ?? '' }} mb-3">
-    <label for="{{ $id ?? '' }}[]">
+<div class="col-md-{{ $col ?? '' }} mb-3 {{ $customClass ?? '' }}">
+    <label for="{{ $id ?? '' }}[]" class="{{ $customLabelClass ?? '' }}">
         {{ $label ?? '' }}
         @if($required ?? false)
             <span style="color: red">*</span>

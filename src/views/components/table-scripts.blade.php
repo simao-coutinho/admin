@@ -44,10 +44,46 @@
         fetchTableResults()
     }
 
+    function setSort(key) {
+        $('th').each(function () {
+            $(this).removeClass('sort-down')
+            $(this).removeClass('sort-up')
+        })
+
+        var th = $('#table-head-' + key)
+        var direction = th.data('sort')
+
+        if (direction == 'DESC') {
+            th.addClass('sort-down')
+            th.data('sort', 'ASC')
+        } else {
+            th.addClass('sort-up')
+            th.data('sort', 'DESC')
+
+        }
+
+        setQueryParam("sort", key)
+        setQueryParam('direction', direction)
+
+        pushState()
+
+        fetchTableResults()
+    }
+
     function setQueryParam(key, value) {
         params = new URLSearchParams(window.location.search)
         params.set(key, value)
 
+        pushState()
+    }
+
+    function deleteQueryParam(key) {
+        params.delete(key)
+
+        pushState()
+    }
+
+    function pushState() {
         if (history.pushState) {
             var newurl = window.location.protocol
             newurl += "//";
@@ -65,7 +101,12 @@
 
         timeOut = setTimeout(function () {
             setQueryParam('page', 1)
-            setQueryParam('search', $('#table-search-input').val())
+            var search = $('#table-search-input').val();
+            if (search.length > 0) {
+                setQueryParam('search', search)
+            } else {
+                deleteQueryParam('search')
+            }
             fetchTableResults()
         }, 500)
     }
@@ -75,7 +116,8 @@
             type: "GET",
             url: "{{ $url ?? '' }}?" + params.toString(),
             data: {
-                type: '{{ $type ?? '' }}'
+                type: '{{ $type ?? '' }}',
+                user_id: '{{ Auth::id() }}'
             },
             beforeSend: function () {
                 $('#myServerTable').addClass('loading')

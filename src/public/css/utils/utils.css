@@ -1,53 +1,49 @@
-/* region Starter Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: sans-serif;
-    color: #343A40;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, output,
-q, samp, script, select, small, span, strong, sub, sup, textarea, time, tt, var {
-    display: inline-block;
-}
-/* endregion */
-
-
 /****************************************************** Text **********************************************************/
 .text-bold {
     font-weight: bold;
 }
 
+/* region Card Animation */
+.shadow-animated {
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.shadow-animated:hover {
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+}
+
+/* endregion */
+
+:root {
+    --c-accent: #F6A704;
+}
+
 /**************************************************** Buttons *********************************************************/
 .btn:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0);
 }
 
 .outlineButton {
-    border-color: #D90845;
-    color: #D90845;
+    border-color: #F6A704;
+    color: #F6A704;
 }
 
 .outlineButton:hover {
-    background-color: #D90845;
+    background-color: #F6A704;
     border-color: whitesmoke;
 }
 
 .outlineButton:focus {
-    background: #D90845;
+    background: #F6A704;
     box-shadow: 0 0 0 0.2rem whitesmoke;
     color: white;
 }
 
 .fillButton {
-    background-color: #D90845;
-    border-color: #D90845;
+    background-color: #F6A704;
+    border-color: #F6A704;
 }
 
 .fillButton:disabled {
@@ -55,7 +51,7 @@ q, samp, script, select, small, span, strong, sub, sup, textarea, time, tt, var 
     border-color: #d36383;
 }
 
-.fillButton:disabled:hover{
+.fillButton:disabled:hover {
     cursor: not-allowed;
     background-color: #d36383;
     border-color: #d36383;
@@ -64,8 +60,8 @@ q, samp, script, select, small, span, strong, sub, sup, textarea, time, tt, var 
 
 .fillButton:hover {
     background-color: white;
-    color: #D90845;
-    border-color: #D90845;
+    color: #F6A704;
+    border-color: #F6A704;
 }
 
 .fillButton:hover > i {
@@ -73,7 +69,7 @@ q, samp, script, select, small, span, strong, sub, sup, textarea, time, tt, var 
 }
 
 .fillButton:focus {
-    background: #D90845;
+    background: #F6A704;
     box-shadow: 0 0 0 0.2rem grey;
     color: white;
 }
@@ -91,13 +87,26 @@ q, samp, script, select, small, span, strong, sub, sup, textarea, time, tt, var 
 
 .rs-upcoming-event .nav-link.active {
     padding: 8px;
-    background-color: #d90845;
+    background-color: #F6A704;
     border-radius: 5px;
     color: white;
 }
+
 /************************************************ Styles Comuns *******************************************************/
+.list-horizontal > li {
+    display: inline-block;
+    /* You can also add some margins here to make it look prettier */
+    zoom:1;
+    *display:inline;
+    /* this fix is needed for IE7- */
+}
+
+.border-none {
+    border: none;
+}
+
 a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .c-inactive {
@@ -113,7 +122,11 @@ a:hover {
 }
 
 .c-accent {
-    color: #D90845;
+    color: #F6A704;
+}
+
+.c-yellow {
+    color: #ffc107;
 }
 
 .c-white {
@@ -131,8 +144,8 @@ a:hover {
 
 /************************************************* Backgrounds ********************************************************/
 .bg-accent {
-  background: #D90845;
-  color: white;
+    background: #F6A704;
+    color: white;
 }
 
 .bg-darkGreen {
@@ -165,13 +178,13 @@ a:hover {
 
 /*************************************************** Displays *********************************************************/
 .d-block {
-  display: block;
+    display: block;
 }
 
 .cookie-consent {
     text-align: center;
     padding: 2rem;
-    background-color: #D90845;
+    background-color: #F6A704;
     position: fixed;
     bottom: 0;
     width: 100vw;
@@ -184,259 +197,266 @@ a:hover {
 
 .cookie-consent > .cookie-consent__agree {
     margin-left: 1rem;
-    box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-    border-radius:6px;
-    border:1px solid #dcdcdc;
-    display:inline-block;
-    cursor:pointer;
-    color:#666666;
-    font-size:15px;
-    font-weight:bold;
-    padding:6px 24px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #666666;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
 }
 
 .cookie-consent > .cookie-consent__agree:active {
-    position:relative;
-    top:1px;
+    position: relative;
+    top: 1px;
 }
 
 /**************************************** CheckBox & Radio Buttons Style **********************************************/
 .b-contain *, .b-contain *::before, .b-contain *::after {
-	box-sizing: content-box !important;
+    box-sizing: content-box !important;
 }
 
 .b-contain input {
-	position: absolute;
-	z-index: -1;
-	opacity: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
 }
 
 .b-contain span {
-	line-height: 1.39;
-	font-size: 0.87rem;
-	font-family: inherit;
-  position: relative;
-  bottom: 4px;
+    line-height: 1.39;
+    font-size: 0.87rem;
+    font-family: inherit;
+    position: relative;
+    bottom: 4px;
 }
 
 .b-contain {
-	display: table;
-	position: relative;
-	padding-left: 1.8rem;
-	cursor: pointer;
-	margin-bottom: .5rem;
+    display: table;
+    position: relative;
+    padding-left: 1.8rem;
+    cursor: pointer;
+    margin-bottom: .5rem;
 }
 
 .b-contain input[type="checkbox"] ~ .b-input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 1rem;
-	width: 1rem;
-	background: rgba(241, 245, 248, 1);
-	transition: background 250ms;
-	border: 1px solid rgba(184, 194, 204, 1);
-	border-radius: 0.125rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1rem;
+    width: 1rem;
+    background: rgba(241, 245, 248, 1);
+    transition: background 250ms;
+    border: 1px solid rgba(184, 194, 204, 1);
+    border-radius: 0.125rem;
 }
 
 .b-contain input[type="radio"] ~ .b-input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 1rem;
-	width: 1rem;
-	background: rgba(241, 245, 248, 1);
-	transition: background 250ms;
-	border: 1px solid rgba(184, 194, 204, 1);
-	border-radius: 2.0rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1rem;
+    width: 1rem;
+    background: rgba(241, 245, 248, 1);
+    transition: background 250ms;
+    border: 1px solid rgba(184, 194, 204, 1);
+    border-radius: 2.0rem;
 }
 
 .b-contain input[type="checkbox"] ~ .b-input::after {
-	content: '';
-	position: absolute;
-	display: none;
-	left: 0.34rem;
-	top: 0.09rem;
-	width: .25rem;
-	height: .6rem;
-	border: solid rgba(255, 255, 255, 1);
-	border-width: 0 2px 2px 0;
-	transition: background 250ms;
-	transform: rotate(45deg);
+    content: '';
+    position: absolute;
+    display: none;
+    left: 0.34rem;
+    top: 0.09rem;
+    width: .25rem;
+    height: .6rem;
+    border: solid rgba(255, 255, 255, 1);
+    border-width: 0 2px 2px 0;
+    transition: background 250ms;
+    transform: rotate(45deg);
 }
 
 .b-contain input[type="radio"] ~ .b-input::after {
-	content: '';
-	position: absolute;
-	display: none;
-	left: 0.23rem;
-	top: 0.21rem;
-	width: 0.6rem;
-	height: 0.6rem;
-	border-radius: 2.0rem;
-	background: rgba(255, 255, 255, 1);
-	transition: background 250ms;
+    content: '';
+    position: absolute;
+    display: none;
+    left: 0.23rem;
+    top: 0.21rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 2.0rem;
+    background: rgba(255, 255, 255, 1);
+    transition: background 250ms;
 }
 
 .b-contain input:disabled ~ .b-input::after {
-	border-color: rgba(135, 149, 161, 1);
+    border-color: rgba(135, 149, 161, 1);
 }
 
 .b-contain input:checked ~ .b-input::after {
-	display: block;
+    display: block;
 }
 
 .b-contain:hover input ~ .b-input,
 .b-contain input:focus ~ .b-input {
-	background: rgb(231, 238, 243);
+    background: rgb(231, 238, 243);
 }
 
 .b-contain input:focus ~ .b-input {
-	box-shadow: 0 0 0 2px rgba(52,144,220,0.5);
+    box-shadow: 0 0 0 2px rgba(52, 144, 220, 0.5);
 }
 
 .b-contain input:checked ~ .b-input {
-	background: #D90845;
-	border-color: #D90845;
+    background: #F6A704;
+    border-color: #F6A704;
 }
 
 .b-contain input[type="checkbox"]:disabled ~ .b-input {
-	background: rgba(241, 245, 248, 1);
-	border-color: rgba(184, 194, 204, 1);
-	opacity: 0.6;
-	cursor: not-allowed;
+    background: rgba(241, 245, 248, 1);
+    border-color: rgba(184, 194, 204, 1);
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .b-contain input[type="radio"]:disabled ~ .b-input {
-	background: rgba(241, 245, 248, 1);
-	border-color: rgba(184, 194, 204, 1);
-	opacity: 0.6;
-	cursor: not-allowed;
+    background: rgba(241, 245, 248, 1);
+    border-color: rgba(184, 194, 204, 1);
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .b-contain input[type="radio"]:disabled ~ .b-input::after {
-	background: rgba(135, 149, 161, 1);
+    background: rgba(135, 149, 161, 1);
 }
 
 .b-contain input:checked:focus ~ .b-input, .b-contain:hover input:not([disabled]):checked ~ .b-input {
-	background: #D90845;
-	border-color: #D90845;
+    background: #F6A704;
+    border-color: #F6A704;
 }
 
 .b-contain .b-input::before {
-	content: '';
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 3rem;
-	height: 3rem;
-	margin-left: -0.85rem;
-	margin-top: -0.85rem;
-	background: #D90845;
-	border-radius: 2rem;
-	opacity: .6;
-	z-index: 99999;
-	transform: scale(0);
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    margin-left: -0.85rem;
+    margin-top: -0.85rem;
+    background: #F6A704;
+    border-radius: 2rem;
+    opacity: .6;
+    z-index: 99999;
+    transform: scale(0);
 }
 
 @keyframes b-ripple {
-	0% {
-		transform: scale(0);
-	}
+    0% {
+        transform: scale(0);
+    }
 
-	20% {
-		transform: scale(1);
-	}
+    20% {
+        transform: scale(1);
+    }
 
-	100% {
-		opacity: 0;
-		transform: scale(1);
-  	}
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
 }
 
 @keyframes b-ripple-duplicate {
-	0% {
-		transform: scale(0);
-	}
+    0% {
+        transform: scale(0);
+    }
 
-	30% {
-		transform: scale(1);
-	}
+    30% {
+        transform: scale(1);
+    }
 
-	60% {
-		transform: scale(1);
-	}
+    60% {
+        transform: scale(1);
+    }
 
-	100% {
-		opacity: 0;
-		transform: scale(1);
-  	}
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
 }
 
 .b-contain input + .b-input::before {
-	animation: b-ripple 250ms ease-out;
+    animation: b-ripple 250ms ease-out;
 }
 
 .b-contain input:checked + .b-input::before {
-	animation-name: b-ripple-duplicate;
+    animation-name: b-ripple-duplicate;
 }
 
 .b-contain .b-input::before {
-	visibility: hidden;
+    visibility: hidden;
 }
 
 .b-contain input:focus + .b-input::before {
-	visibility: visible;
+    visibility: visible;
 }
 
 .b-contain:first-child .b-input::before {
-	visibility: hidden;
+    visibility: hidden;
 }
 
 /******************************************** myCard STYLE ANIMATION **************************************************/
 .myCard {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .myCard:hover, .myCard:focus {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .card-img-wrap {
     overflow: hidden;
     position: relative;
 }
+
 .card-img-wrap:after {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(66,66,66,0.3);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(66, 66, 66, 0.3);
     opacity: 0;
     transition: opacity .25s;
 }
+
 .card-img-wrap img {
     transition: transform .25s;
     width: 100%;
     height: 200px;
 }
+
 .card-img-wrap:hover img {
     transform: scale(1.2);
 }
+
 .card-img-wrap:hover:after {
     opacity: 1;
 }
 
 .font-bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .mt4 {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 /************************************************ FONT SIZE UTILS *****************************************************/

@@ -1,5 +1,7 @@
-var domain = "https://myshowathome.com/";
+var DOMAIN = $('meta[name="domain"]').attr('content');
 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+var SESSION_ID = $('meta[name="session_id"]').attr('content');
+var USER_ID = $('meta[name="user_id"]').attr('content');
 var delay = 100;
 
 function string_to_slug(str) {
@@ -73,8 +75,8 @@ function update(type, id, url) {
     }
 }
 
-function deleteItem(id, url) {
-    var response = confirm("Do you want to delete this item?");
+function deleteItem(id, url, backUrl) {
+    var response = confirm("Deseja remover este item?");
 
     if (response === true) {
         var btn = document.getElementById("btnDelete");
@@ -82,13 +84,13 @@ function deleteItem(id, url) {
 
         $.ajax({
             type: "POST",
-            url: domain + url + "delete",
+            url: url,
             data: {_token: CSRF_TOKEN, id: id},
             success: function (response) {
                 btn.innerHTML = "Deleted";
 
                 setTimeout(function () {
-                    window.location.href = domain + url
+                    window.location.href = backUrl
                 }, delay);
             }
         });
@@ -125,4 +127,14 @@ function scrollToId(id, url) {
                 scrollTop: $('#' + id).offset().top},
             'slow');
     }
+}
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 }

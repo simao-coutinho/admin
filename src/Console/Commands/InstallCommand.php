@@ -13,8 +13,6 @@ class InstallCommand extends Command
     public function handle()
     {
         $this->callSilent('vendor:publish', ['--tag' => 'admin-views', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'admin-migrations', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'admin-public', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'admin-plugins', '--force' => true]);
     }
 }

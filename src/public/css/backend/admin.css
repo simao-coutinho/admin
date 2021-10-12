@@ -1,0 +1,108 @@
+.page-item.disabled {
+    cursor: default;
+}
+
+.page-item.active {
+    cursor: default;
+}
+
+.table-search-box {
+    position: absolute;
+    top: 20px;
+}
+
+.table-hover {
+    cursor: pointer;
+
+}
+
+table.loading {
+    position: relative;
+}
+table.loading tbody:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-image: url(../../img/admin/loading.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    content: "";
+}
+
+.sort-down {
+    position: relative;
+}
+
+.sort-down:after {
+    font-family: "Font Awesome 5 Free", serif;
+    content: "\f078";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+}
+
+.sort-up {
+    position: relative;
+}
+
+.sort-up:after {
+    font-family: "Font Awesome 5 Free", serif;
+    content: "\f077";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+}
+
+.menu-li-header {
+
+}
+
+.menu-li-header .fa-edit {
+    margin-left: auto;
+}
+
+#map {
+    height: 545px;
+    width: 100%;
+}
+
+.border-geofence {
+    border: solid 1px #00FF00;
+    border-radius: 10px;
+    padding-top: 8px;
+    margin-bottom: 10px;
+}
+
+.float-right {
+    float: right;
+}
+
+.imageEditable {
+    width: 100px;
+    height: 100px;
+    border: solid 1px gray;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.display-none {
+    display: none;
+}
+
+.ml-3 {
+    margin-left: 16px !important;
+}
+
+.mr-2 {
+    margin-right: 10px;
+}
