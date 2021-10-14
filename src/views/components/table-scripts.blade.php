@@ -1,37 +1,3 @@
-<!-- DataTables Scripts -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.bootstrap4.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
-
-<script>
-    if ($('#myTable').length) {
-        var table = $('#myTable').DataTable({
-            dom: 't<"d-flex justify-content-between"ip>',
-            // buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
-            "order": [[0, 'desc']],
-            pageLength: 15,
-            lengthMenu: [ [10, 15, 50, -1], [10, 25, 50, "All"] ],
-            "lengthChange": true,
-            language: {
-                url: 'https://raw.githubusercontent.com/DataTables/Plugins/master/i18n/pt_pt.json'
-            },
-            "autoWidth": false
-        });
-    }
-
-    function filterTable() {
-        table.search($('#table-search-input').val()).draw();
-    }
-
-</script>
-
 <script>
     var params = new URLSearchParams(window.location.search)
     var page = "{{ $_GET['page'] ?? 1 }}"
@@ -120,14 +86,13 @@
                 user_id: '{{ Auth::id() }}'
             },
             beforeSend: function () {
-                $('#myServerTable').addClass('loading')
+                $('#myTable').addClass('loading')
             },
             success: function (response) {
-                $('#myServerTable').removeClass('loading')
+                $('#myTable').removeClass('loading')
                 $('#tbody').html(response.html)
                 $('#pagination').html(response.pagination)
             }
         })
     }
 </script>
-
