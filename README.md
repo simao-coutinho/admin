@@ -5,6 +5,16 @@
 
 Instalation
 
+# Install Jetstream
+
+## Follow link: https://jetstream.laravel.com/2.x/installation.html
+
+# Install LaravelDebugbar
+
+<pre>
+composer require barryvdh/laravel-debugbar --dev
+</pre>
+
 <pre>
 composer require simaocoutinho/admin
 </pre>
@@ -21,9 +31,9 @@ Publish Views
 php artisan vendor:publish --tag="admin-views" --force
 </pre>
 
-
-config/filesystem.php
-substituir
+<strong>In file: </strong>config/filesystem.php
+<br>
+<strong>Replace:</strong>
 <pre>
 'public' => [
             'driver' => 'local',
@@ -33,7 +43,7 @@ substituir
         ],
 </pre>
 
-por:
+by:
 
 <pre>
 'public' => [
@@ -44,7 +54,28 @@ por:
         ],
 </pre>
 
+## Debug Only for developer
+<strong>In file: </strong>config/app.php
+<br>
+<strong>Replace:</strong>
+
+<pre>
+    'debug' => (bool) env('APP_DEBUG', false),
+</pre>
+
+by:
+
+<pre>
+    'debug' => value(function() {
+        if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] == 'IP')
+            return true;
+
+        return false;
+    }),
+</pre>
+
 # Override Redirect on PageExpired
+
 <strong>In file: </strong>app/Exceptions/Handler.php
 
 <strong>Add:</strong>
@@ -63,12 +94,15 @@ public function render($request, Throwable $e)
 </pre>
 
 # Override Login & Register Redirect
+
 ### Link: https://laravel-news.com/override-login-redirects-in-jetstream-fortify
 
 <strong>Create:</strong> app/Http/Responses/LoginResponse.class
 
 <strong>Copy:</strong>
 <pre>
+namespace App\Http\Responses;
+
 use Auth;
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 
@@ -94,6 +128,8 @@ class LoginResponse implements LoginResponseContract
 <strong>Copy:</strong>
 
 <pre>
+namespace App\Http\Responses;
+
 use Auth;
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 
@@ -154,4 +190,12 @@ public function boot()
             return null;
         });
     }
+</pre>
+
+# Force HTTPS via htaccess
+
+<pre>
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </pre>
