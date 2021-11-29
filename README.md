@@ -152,6 +152,7 @@ class RegisterResponse implements RegisterResponseContract
 <strong>Add:</strong>
 <pre>
 use App\Http\Responses\LoginResponse;
+use App\Http\Responses\RegisterResponse;
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use Laravel\Fortify\Contracts\TwoFactorLoginResponse as TwoFactorLoginResponseContract;
