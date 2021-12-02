@@ -15,6 +15,8 @@ Instalation
 composer require barryvdh/laravel-debugbar --dev
 </pre>
 
+# Install AdminStarterCode
+
 <pre>
 composer require simaocoutinho/admin
 </pre>
@@ -81,15 +83,15 @@ by:
 <strong>Add:</strong>
 
 <pre>
-public function render($request, Throwable $e)
+    public function register()
     {
-        if ($e instanceof TokenMismatchException) {
+        ...
 
-            return redirect('/login');
-
-        }
-
-        return parent::render($request, $e);
+        $this->renderable(function (\Exception $e) {
+            if ($e->getPrevious() instanceof \Illuminate\Session\TokenMismatchException) {
+                return redirect()->route('login');
+            };
+        });
     }
 </pre>
 
